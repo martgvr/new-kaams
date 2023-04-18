@@ -30,3 +30,9 @@
         width: 320px;
     }
 }
+
+@media (max-width: 600px) {
+    .header__container img:first-of-type {
+        width: 260px;
+    }
+}
