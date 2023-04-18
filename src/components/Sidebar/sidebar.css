@@ -1,4 +1,6 @@
 .sidebar__container {
+    grid-area: sidebar;
+
     position: absolute;
     height: 100%;
 
@@ -8,8 +10,8 @@
     align-items: center;
     justify-content: space-between;
 
-    background-color: rgba(10, 10, 10, 0.8);
     backdrop-filter: blur(4px);
+    background-color: rgba(10, 10, 10, 0.8);
 }
 
 .sidebar__container img {

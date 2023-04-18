@@ -1,4 +1,5 @@
 .slider__container {
-    padding-left: 80px;
+    grid-area: slider;
+    
     flex-grow: 1;
 }

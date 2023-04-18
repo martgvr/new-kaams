@@ -6,12 +6,7 @@ import Header from '../Header/Header'
 function Slider() {
   return (
     <div className='slider__container'>
-      <Header />
 
-      <div>
-
-      </div>
-      
       <div className='slider__rightside'>
         <p>Right side</p>
       </div>
