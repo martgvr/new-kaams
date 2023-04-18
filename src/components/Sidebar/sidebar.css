@@ -1,0 +1,38 @@
+.sidebar__container {
+    position: absolute;
+    height: 100%;
+
+    width: 80px;
+    padding: 40px 0;
+
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+.sidebar__container img {
+    filter: invert(1);
+    opacity: 0.5;
+}
+
+.sidebar__container img:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.sidebar__menu img {
+    transform: rotate(90deg);
+    width: 30px;
+    height: 30px;
+}
+
+.sidebar__social {
+    gap: 40px;
+}
+
+.sidebar__social img {
+    width: 25px;
+    height: 25px;
+}
