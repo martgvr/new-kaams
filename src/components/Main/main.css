@@ -1,8 +1,4 @@
 .main__container {
-    background: url('https://cdn.wallpapersafari.com/33/14/A6T8OK.jpg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
     height: 100vh;
 
     display: grid;
@@ -10,4 +6,18 @@
     grid-template-rows: 100px 1fr;
     grid-template-areas:    "sidebar header"
                             "sidebar slider";
+}
+
+
+@media (max-width: 1500px) {
+    .main__container {
+        height: 100vh;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px 1fr 70px;
+        grid-template-areas:    "header"
+                                "slider"
+                                "sidebar";
+    }
 }

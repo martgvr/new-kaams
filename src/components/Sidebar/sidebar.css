@@ -1,17 +1,18 @@
 .sidebar__container {
+    background-color: rgb(35, 35, 35);
+
     grid-area: sidebar;
 
     position: absolute;
-    height: 100%;
-
-    width: 80px;
     padding: 40px 0;
+    height: 100%;
+    width: 80px;
+    z-index: 1;
 
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-
-    backdrop-filter: blur(4px);
-    background-color: rgba(10, 10, 10, 0.8);
 }
 
 .sidebar__container img {
@@ -24,6 +25,11 @@
     cursor: pointer;
 }
 
+.sidebar__menu {
+    justify-content: center;
+    align-items: center;
+}
+
 .sidebar__menu img {
     transform: rotate(90deg);
     width: 30px;
@@ -31,10 +37,43 @@
 }
 
 .sidebar__social {
+    display: flex;
+    flex-direction: column;
     gap: 40px;
 }
 
 .sidebar__social img {
     width: 25px;
     height: 25px;
+}
+
+@media (max-width: 1500px) {
+    .sidebar__container {
+        background-color: rgb(35, 35, 35);
+
+        grid-area: sidebar;
+    
+        position: sticky;
+        padding: 30px;
+        height: 70px;
+        width: 100%;
+        bottom: 0;
+    
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .sidebar__social {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    .sidebar__menu img {
+        transform: rotate(0deg);
+        width: 30px;
+        height: 30px;
+    }
 }
