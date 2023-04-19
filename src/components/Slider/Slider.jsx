@@ -3,25 +3,35 @@ import SliderCard from '../SliderCard/SliderCard'
 import React, { useEffect, useState } from 'react'
 import { getData } from "../../services/firebase.service"
 
+import Loading from '../Loading/Loading'
 import SliderText from '../SliderText/SliderText'
 import SliderRightSide from '../SliderRightSide/SliderRightSide'
-import Loading from '../Loading/Loading'
 
 function Slider() {
-  const [data, setData] = useState(null)
+  const [seasonData, setSeasonData] = useState(null)
+  const [seasonProducts, setSeasonProducts] = useState(null)
+  const [selectedProduct, setSelectedProduct] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
-  const [selectedProduct, setSelectedProduct] = useState({})
+
 
   useEffect(() => {
-		getData("home").then((res) => {
-      setData(res[0])
-      setSelectedProduct(res[0].seasonProducts[0])
+		getData("season").then((res) => {
+      let products = []
+      
+      Object.keys(res[1]).forEach(function(key, index) {
+        if (key !== 'uid') {
+          products.push(res[1][key])
+        }
+      })
+
       setIsLoading(false)
+      setSeasonData(res[0])
+      setSeasonProducts(products)
+      setSelectedProduct(products[0])
     })
 	}, [])
 
-  const cardClickHandler = (position) => setSelectedProduct(data.seasonProducts[position])
-
+  const cardClickHandler = (position) => setSelectedProduct(seasonProducts[position])
 
   return (
     <>
@@ -34,11 +44,11 @@ function Slider() {
           <div className='slider__container'>
             <div className='slider__leftside flex-column'>
               <div className='slider__leftside--text flex-column'>
-                <SliderText seasonName={data.seasonName} seasonYear={data.seasonYear} productDescription={selectedProduct.productDescription} />
+                <SliderText seasonName={seasonData.seasonName} seasonYear={seasonData.seasonYear} productDescription={selectedProduct.productDescription} />
               </div>
               <div className='slider__leftside--cards flex-row'>
                 {
-                  data.seasonProducts.map(item => <SliderCard position={data.seasonProducts.indexOf(item)} image={item.productImage} selectedProduct={selectedProduct} cardClickHandler={cardClickHandler} />)
+                  seasonProducts.map(item => <SliderCard position={seasonProducts.indexOf(item)} image={item.productImage} selectedProduct={selectedProduct} cardClickHandler={cardClickHandler} />)
                 }
               </div>
             </div>
