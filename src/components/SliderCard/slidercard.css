@@ -1,0 +1,13 @@
+.slidercard__container {
+    flex-grow: 1;
+    transition: 0.05s all ease-in-out;
+}
+
+.slidercard__container:hover {
+    flex-grow: 1;
+    cursor: pointer;
+
+    transform: scale(1.05);
+    transition: 0.2s all ease-in-out;
+    z-index: 3;
+}
