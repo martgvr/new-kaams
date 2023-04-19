@@ -11,11 +11,6 @@
 .slider__rightside {
     position: relative;
     width: 60%;
-    
-    background: url('https://taverniti.vteximg.com.br/arquivos/ids/255413-2000-2500/02679_602X1.jpg?v=638019640032800000');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .slider__rightside--floating {

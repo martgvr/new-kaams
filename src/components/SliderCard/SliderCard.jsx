@@ -1,18 +1,18 @@
-import React from 'react'
-import './slidercard.css'
+import React from "react"
+import "./slidercard.css"
 
-function SliderCard({ image, active }) {
-    const cardStyle = {
-        background: `url(${image})`,
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        filter: active ? `grayscale(0%)` : `grayscale(100%)`,
-    }
+function SliderCard({ image, selectedProduct, cardClickHandler, position }) {
+	const isSelected = selectedProduct.productImage == image
 
-  return (
-    <div className='slidercard__container' style={cardStyle}></div>
-  )
+	const cardStyle = {
+		background: `url(${image})`,
+		backgroundPosition: "center center",
+		backgroundRepeat: "no-repeat",
+		backgroundSize: "cover",
+		filter: isSelected ? `grayscale(0%)` : `grayscale(100%)`,
+	}
+
+	return <div className="slidercard__container" style={cardStyle} onClick={() => cardClickHandler(position)}></div>
 }
 
 export default SliderCard
