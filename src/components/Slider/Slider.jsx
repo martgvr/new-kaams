@@ -17,11 +17,9 @@ function Slider() {
   useEffect(() => {
 		getData("season").then((res) => {
       let products = []
-      
-      Object.keys(res[1]).forEach(function(key, index) {
-        if (key !== 'uid') {
-          products.push(res[1][key])
-        }
+
+      Object.keys(res[1]).forEach((key) => {
+         key !== 'uid' && products.push(res[1][key])
       })
 
       setIsLoading(false)
@@ -38,9 +36,7 @@ function Slider() {
       {
         isLoading ? 
           <Loading text={'Conectando a la base de datos'} />
-
           :
-          
           <div className='slider__container'>
             <div className='slider__leftside flex-column'>
               <div className='slider__leftside--text flex-column'>
