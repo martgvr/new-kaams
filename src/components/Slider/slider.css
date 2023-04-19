@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 
 .slider__container {
-    grid-area: slider;
+    grid-area: content;
     display: flex;
     flex-direction: row;
 }

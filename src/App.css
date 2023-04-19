@@ -57,3 +57,27 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.App {
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  grid-template-rows: 100px 1fr;
+  grid-template-areas:    "sidebar header"
+                          "sidebar content";
+}
+
+
+@media (max-width: 1500px) {
+  .App {
+      height: 100vh;
+
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 100px 1fr 70px;
+      grid-template-areas:    "header"
+                              "content"
+                              "sidebar";
+  }
+}
