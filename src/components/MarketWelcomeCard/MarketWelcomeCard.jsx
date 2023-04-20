@@ -3,7 +3,10 @@ import './marketwelcomecard.css'
 
 function MarketWelcomeCard() {
   return (
-    <div className='marketwelcomecard__container'>MarketWelcomeCard</div>
+    <div className='marketwelcomecard__container'>
+      <div>Imagen</div>
+      <div>Descripción</div>
+    </div>
   )
 }
 

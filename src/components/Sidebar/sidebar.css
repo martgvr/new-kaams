@@ -30,6 +30,7 @@
 .sidebar__icon {
     justify-content: center;
     align-items: center;
+    transition: 0.2s all ease-in-out;
 }
 
 .sidebar__icon img {
