@@ -1,0 +1,9 @@
+.marketwelcome__container {
+    color: black;
+}
+
+.marketwelcome__banner {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    height: 300px;
+}

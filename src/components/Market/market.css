@@ -1,3 +1,5 @@
-.market__container{
+.market__container {
+    background-color: rgb(240, 240, 240);
     grid-area: content;
+    height: 100%;
 }

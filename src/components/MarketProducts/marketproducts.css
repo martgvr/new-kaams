@@ -1,0 +1,25 @@
+.marketproducts__container {
+    grid-area: content;
+}
+
+.marketproducts__filters {
+    grid-area: market__filters;
+    padding: 20px;
+    width: 600px;
+}
+
+.marketproducts__filters--box {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    padding: 20px;
+    height: 100%;
+}
+
+.marketproducts__content {
+    grid-area: market__content;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    gap: 20px;
+    height: fit-content;
+}
