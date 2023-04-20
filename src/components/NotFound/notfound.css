@@ -1,0 +1,8 @@
+.notfound__container {
+    grid-area: content;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}

@@ -1,6 +1,5 @@
 .sidebar__container {
-    background-color: rgba(35, 35, 35, 0.8);
-    backdrop-filter: blur(12px);
+    background-color: rgb(35, 35, 35);
 
     grid-area: sidebar;
 
@@ -42,6 +41,7 @@
 }
 
 .sidebar__social {
+    transition: 0.2s all ease-in-out;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -62,16 +62,15 @@
     gap: 30px;
     justify-content: center;
     align-items: center;
-    
-    text-transform: uppercase;
-    font-weight: 200;
-    font-size: 1.4em;
-    letter-spacing: 6px;
-    color: rgb(180, 180, 180);
 }
 
 .sidebar__menu ul li {
     padding: 4px 10px;
+    color: rgb(180, 180, 180);
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-weight: 200;
+    font-size: 1.4em;
 }
 
 .sidebar__menu ul li:hover {
@@ -92,7 +91,7 @@
         grid-area: sidebar;
 
         position: sticky;
-        padding: 30px;
+        padding: 20px;
         height: 70px;
         width: 100%;
         bottom: 0;
@@ -103,6 +102,11 @@
         justify-content: space-between;
     }
 
+    .sidebar__menu ul li {
+        letter-spacing: 4px;
+        font-size: 1.2em;
+    }
+
     .sidebar__social {
         display: flex;
         flex-direction: row;
@@ -111,7 +115,7 @@
 
     .sidebar__icon img {
         transform: rotate(0deg);
-        width: 30px;
         height: 30px;
+        width: 30px;
     }
 }
