@@ -1,5 +1,6 @@
 .market__container {
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(210, 210, 210);
+    /* background-color: rgb(180, 180, 180); */
     grid-area: content;
     height: 100%;
 }

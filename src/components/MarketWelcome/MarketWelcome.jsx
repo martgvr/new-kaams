@@ -26,9 +26,9 @@ function MarketWelcome() {
         </div>
 
         <div className='marketwelcome__cardscontainer flex-row'>
-          <MarketWelcomeCard />
-          <MarketWelcomeCard />
-          <MarketWelcomeCard />
+          <MarketWelcomeCard description={'Sobretodos y montgomery para hombres'} image={'https://i.pinimg.com/236x/b4/4f/c0/b44fc072b18c678647246dd4abb73505.jpg'}/>
+          <MarketWelcomeCard description={'Sueteres tejidos para mujer'} image={'https://i.pinimg.com/564x/04/86/da/0486da84eee9bc1bcafd5497a4713635.jpg'} />
+          <MarketWelcomeCard description={'Gorros de lana y guantes'} image={'https://www.salpa.com.ar/13291-large_default/gorro-de-lana-negro.jpg'} />
         </div>
     </div>
   )
