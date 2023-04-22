@@ -3,3 +3,9 @@
     grid-area: content;
     height: 100%;
 }
+
+@media (max-width: 1100px) {
+    .market__container {
+        padding-bottom: 70px; 
+    }
+}

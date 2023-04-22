@@ -129,6 +129,12 @@
     }
 }
 
+@media (max-width: 1100px) {
+    .slider__container {
+        padding-bottom: 70px;
+    }
+}
+
 @media (max-width: 700px) {
     .slider__leftside--text {
         width: fit-content;

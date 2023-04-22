@@ -87,11 +87,13 @@
 
 @media (max-width: 1500px) {
     .sidebar__container {
-        background-color: rgb(35, 35, 35);
+        background-color: rgba(35, 35, 35, 1);
 
         grid-area: sidebar;
 
-        position: sticky;
+        margin-top: 20px;
+
+        position: fixed;
         padding: 20px;
         height: 70px;
         width: 100%;
