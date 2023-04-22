@@ -8,3 +8,49 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.marketnavbar__container > div {
+    min-width: 33%;
+    height: 100%;
+    text-transform: uppercase;
+}
+
+.marketnavbar__breadcrumb {
+    align-items: center;
+    font-size: 0.8em;
+    font-weight: 400;
+}
+
+.marketnavbar__breadcrumb > div {
+    align-items: baseline;
+    gap: 10px;
+}
+
+.marketnavbar__breadcrumb img {
+    width: 12px;
+    height: 9px;
+    filter: invert(1);
+}
+
+.marketnavbar__categories {
+    justify-content: center;
+    letter-spacing: 2.8px;
+    align-items: center;
+    font-weight: 200;
+    gap: 30px;
+}
+
+.marketnavbar__categories p {
+    padding: 4px 12px;
+}
+
+.marketnavbar__categories p:hover {
+    cursor: pointer;
+    background-color: rgb(10, 10, 10);
+}
+
+.marketnavbar__categories--divider {
+    background-color: rgb(100, 100, 100);
+    width: 1px;
+    height: 60%;
+}

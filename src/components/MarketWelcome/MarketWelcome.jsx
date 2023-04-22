@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react"
 import MarketWelcomeCard from "../MarketWelcomeCard/MarketWelcomeCard"
 import MarketWelcomeBanner from "../MarketWelcomeBanner/MarketWelcomeBanner"
 import Loading from "../Loading/Loading"
+import MarketNavbar from "../MarketNavbar/MarketNavbar"
 
 function MarketWelcome({ data }) {
 	const [banner, setBanner] = useState({})
@@ -30,12 +31,13 @@ function MarketWelcome({ data }) {
 				} else {
 					i++
 				}
-			}, 10000)
+			}, 8000)
 		}
 	}, [data])
 
 	return (
 		<div className="marketwelcome__container flex-column">
+			<MarketNavbar breadcrumb={['Novedades']}/>
 			{data.length === 0 ? (
 				<Loading />
 			) : (

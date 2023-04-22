@@ -1,14 +1,23 @@
-import React from 'react'
-import './marketnavbar.css'
+import React from "react"
+import "./marketnavbar.css"
+import MarketBreadcrumb from "../MarketBreadcrumb/MarketBreadcrumb"
 
-function MarketNavbar() {
-  return (
-    <div className='marketnavbar__container flex-row'>
-        <p>Bradcrumb</p>
-        <p>Categorias</p>
-        <p></p>
-    </div>
-  )
+function MarketNavbar({ breadcrumb }) {
+	return (
+		<div className="marketnavbar__container flex-row">
+			<MarketBreadcrumb breadcrumb={breadcrumb} />
+
+			<div className="marketnavbar__categories flex-row">
+				<p>Hombre</p>
+				<div className="marketnavbar__categories--divider"></div>
+				<p>Mujer</p>
+				<div className="marketnavbar__categories--divider"></div>
+				<p>Accesorios</p>
+			</div>
+
+			<div></div>
+		</div>
+	)
 }
 
 export default MarketNavbar

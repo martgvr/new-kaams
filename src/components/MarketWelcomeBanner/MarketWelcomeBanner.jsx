@@ -3,8 +3,9 @@ import Button from '../Button/Button'
 import "./marketwelcomebanner.css"
 
 function MarketWelcomeBanner({ title, description, image, link }) {
-	const [transition, setTransition] = useState(true)
 	const [bannerData, setBannerData] = useState({ title, description, image, link })
+	const [transition, setTransition] = useState(false)
+	const [initial, setInitial] = useState(true)
 	const transitionTime = 2000
 
 	const bannerStyle = {
@@ -15,9 +16,14 @@ function MarketWelcomeBanner({ title, description, image, link }) {
 	}
 
 	useEffect(() => {
-		setTransition(true)
-		setTimeout(() => setBannerData({ title, description, image, link }), transitionTime / 2)
-		setTimeout(() => setTransition(false), transitionTime)
+		if (initial === true) {
+			setTimeout(() => setBannerData({ title, description, image, link }), transitionTime / 2)
+			setTimeout(() => setInitial(false), transitionTime)
+		} else {
+			setTransition(true)
+			setTimeout(() => setBannerData({ title, description, image, link }), transitionTime / 2)
+			setTimeout(() => setTransition(false), transitionTime)
+		}
 	}, [title])
 
 	return (

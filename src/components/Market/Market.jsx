@@ -14,13 +14,11 @@ function Market() {
       setData(res)
     })
   }, [])
-  
 
   return (
     <div className='market__container flex-column'>
-      <MarketNavbar />
-      {/* <MarketProducts /> */}
       <MarketWelcome  data={data} />
+      {/* <MarketProducts /> */}
     </div>
   )
 }
