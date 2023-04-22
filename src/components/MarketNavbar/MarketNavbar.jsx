@@ -15,7 +15,7 @@ function MarketNavbar({ breadcrumb }) {
 				<p>Accesorios</p>
 			</div>
 
-			<div></div>
+			<div className="marketnavbar__emptyspace"></div>
 		</div>
 	)
 }

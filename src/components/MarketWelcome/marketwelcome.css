@@ -1,61 +1,23 @@
 .marketwelcome__container {
+    grid-area: content;
     color: black;
     flex-grow: 1;
+    /* width: 100vw; */
+    overflow: hidden;
 }
 
 .marketwelcome__cardscontainer {
     padding: 20px 20px;
     flex-grow: 1;
     gap: 20px;
-
     justify-content: space-between;
 }
 
-.marketwelcome__banner {
-    height: 400px;
-    color: black;
-    position: relative;
-    background-color: rgb(255, 255, 255);
-}
-
-.banner__leftside {
-    padding-left: 10px;
-    width: 400px;
-    gap: 20px;
-    justify-content: center;
-    align-items: flex-end;
-    text-align: end;
-}
-
-.banner__leftside h1 {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 2.4em;
-    text-align: end;
-}
-
-.banner__rightside {
-    flex-grow: 1;
-    filter: saturate(50%);
-}
-
-.banner__divider1, .banner__divider2 {
-    position: absolute;
-    height: 100%;
-}
-
-.banner__divider1 {
-    width: 300px;
-    left: 400px;
-
-    border-left: 250px solid rgb(255, 255, 255);
-    border-right: 50px solid transparent;
-    border-bottom: 400px solid transparent;
-}
-
-.banner__divider2 {
-    right: 0px;
-
-    border-left: 250px solid transparent;
-    border-right: 0px solid transparent;
-    border-bottom: 400px solid rgb(255, 255, 255);
+@media (max-width: 1100px) {
+    .marketwelcome__cardscontainer {
+        flex-direction: column;
+        margin-top: 20px;
+        padding: 0;
+        gap: 20px;
+    }
 }
