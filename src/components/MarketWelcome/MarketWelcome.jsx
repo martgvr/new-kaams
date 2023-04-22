@@ -1,37 +1,56 @@
-import React from 'react'
-import './marketwelcome.css'
-import MarketWelcomeCard from '../MarketWelcomeCard/MarketWelcomeCard'
-import Button from '../Button/Button'
+import "./marketwelcome.css"
+import React, { useEffect, useState } from "react"
 
-function MarketWelcome() {
-  const bannerStyle = {
-    backgroundImage: `url('https://wallpapercave.com/wp/wp6130531.jpg')`,
-    backgroundPosition: 'center center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-  }
+import MarketWelcomeCard from "../MarketWelcomeCard/MarketWelcomeCard"
+import MarketWelcomeBanner from "../MarketWelcomeBanner/MarketWelcomeBanner"
+import Loading from "../Loading/Loading"
 
-  return (
-    <div className='marketwelcome__container flex-column'>
+function MarketWelcome({ data }) {
+	const [banner, setBanner] = useState({})
+	const [cardsData, setCardsData] = useState([])
 
-        <div className='marketwelcome__banner flex-row'>
-          <div className='banner__leftside flex-column'>
-            <h1>Welcome title</h1>
-            <p>Welcome description</p>
-            <Button primary={'black'} secondary={'white'}  borderColor={'#444'} text={'Conocer más'} />
-          </div>
-          <div className='banner__rightside' style={bannerStyle}>rightside</div>
-          <div className='banner__divider1'></div>
-          <div className='banner__divider2'></div>
-        </div>
+	useEffect(() => {
+		let bannerProducts = []
+		let cards = []
 
-        <div className='marketwelcome__cardscontainer flex-row'>
-          <MarketWelcomeCard description={'Sobretodos y montgomery para hombres'} image={'https://i.pinimg.com/236x/b4/4f/c0/b44fc072b18c678647246dd4abb73505.jpg'}/>
-          <MarketWelcomeCard description={'Sueteres tejidos para mujer'} image={'https://i.pinimg.com/564x/04/86/da/0486da84eee9bc1bcafd5497a4713635.jpg'} />
-          <MarketWelcomeCard description={'Gorros de lana y guantes'} image={'https://www.salpa.com.ar/13291-large_default/gorro-de-lana-negro.jpg'} />
-        </div>
-    </div>
-  )
+		if (data.length !== 0) {
+			Object.keys(data[0]).forEach((key) => key !== "uid" && bannerProducts.push(data[0][key]))
+			Object.keys(data[1]).forEach((key) => key !== "uid" && cards.push(data[1][key]))
+
+			setCardsData(cards)
+			setBanner(bannerProducts[0])
+
+			let i = 1
+
+			setInterval(() => {
+				setBanner(bannerProducts[i])
+
+				if (i == bannerProducts.length - 1) {
+					i = 0
+				} else {
+					i++
+				}
+			}, 10000)
+		}
+	}, [data])
+
+	return (
+		<div className="marketwelcome__container flex-column">
+			{data.length === 0 ? (
+				<Loading />
+			) : (
+				<>
+					<MarketWelcomeBanner title={banner.title} description={banner.description} image={banner.image} />
+
+					<div className="marketwelcome__cardscontainer flex-row">
+            {
+              cardsData.map(item => <MarketWelcomeCard title={item.title} image={item.image} />)
+            }
+					</div>
+				</>
+			)}
+		</div>
+	)
 }
 
 export default MarketWelcome

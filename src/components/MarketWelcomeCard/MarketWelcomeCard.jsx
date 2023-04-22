@@ -2,7 +2,7 @@ import React from 'react'
 import './marketwelcomecard.css'
 import Button from '../Button/Button'
 
-function MarketWelcomeCard({ image, description, link }) {
+function MarketWelcomeCard({ image, title, link }) {
   const cardStyle = {
     backgroundImage: `url(${image})`,
     backgroundPosition: 'center center',
@@ -14,7 +14,7 @@ function MarketWelcomeCard({ image, description, link }) {
     <div className='marketwelcomecard__container flex-row'>
       <div className='marketwelcomecard__image' style={cardStyle}></div>
       <div className='marketwelcomecard__description flex-column'>
-        <h3>{description}</h3>
+        <h3>{title}</h3>
         <Button primary={'black'} secondary={'white'}  borderColor={'#444'} text={'Conocer más'} />
       </div>
     </div>

@@ -5,6 +5,7 @@
 
 .marketwelcomecard__image {
     width: 50%;
+    filter: saturate(50%);
 }
 
 .marketwelcomecard__description {

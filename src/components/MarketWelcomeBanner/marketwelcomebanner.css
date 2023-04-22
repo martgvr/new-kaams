@@ -1,0 +1,10 @@
+.marketwelcome__banner--transition {
+    opacity: 0;
+    animation: opacityTransition 2s forwards;
+}
+
+@keyframes opacityTransition {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
