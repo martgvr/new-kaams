@@ -1,5 +1,10 @@
 .marketproducts__container {
     grid-area: content;
+    flex-grow: 1;
+}
+
+.marketproducts__grid {
+    flex-grow: 1;
 }
 
 .marketproducts__filters {
@@ -22,10 +27,4 @@
     padding: 20px 0;
     gap: 20px;
     height: fit-content;
-}
-
-@media (max-width: 1500px) {
-    .marketproducts__container {
-        padding-bottom: 70px;
-    }    
 }
