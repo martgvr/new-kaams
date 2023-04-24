@@ -82,3 +82,9 @@ body {
                               "sidebar";
   }
 }
+
+@media (max-width: 1000px) {
+  .App {
+      grid-template-rows: 70px 1fr 70px;
+  }
+}

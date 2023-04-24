@@ -3,9 +3,9 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getData } from "../../services/firebase.service"
 
+import Loading from "../Loading/Loading"
 import MarketCard from "../MarketCard/MarketCard"
 import MarketNavbar from "../MarketNavbar/MarketNavbar"
-import Loading from "../Loading/Loading"
 
 function MarketProducts() {
 	const gender = useParams().gender
@@ -44,9 +44,11 @@ function MarketProducts() {
 					<Loading />
 				) : (
 					<div className="marketproducts__grid flex-row">
+
 						<div className="marketproducts__filters">
-							<div className="marketproducts__filters--box">
-								<ul>{subcategories.length !== 0 ? subcategories.map((item) => <p key={item}>{item.charAt(0).toUpperCase() + item.slice(1)}</p>) : <p>Nada encontrado</p>}</ul>
+							<div className="marketproducts__filters--box flex-column">
+								<div className="filterbox__title"><p>Categorías</p></div>
+								<ul className="flex-column">{subcategories.length !== 0 ? subcategories.map((item) => <li key={item}>{item.charAt(0).toUpperCase() + item.slice(1)}</li>) : <p>Nada encontrado</p>}</ul>
 							</div>
 						</div>
 

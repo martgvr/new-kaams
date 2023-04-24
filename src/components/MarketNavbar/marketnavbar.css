@@ -41,9 +41,9 @@
 @media (max-width: 1100px) {
     .marketnavbar__container {
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
         height: fit-content;
-        padding: 20px;
+        padding: 10px;
         align-items: center;
         justify-content: center;
     } 

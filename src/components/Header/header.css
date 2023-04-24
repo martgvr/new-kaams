@@ -24,6 +24,7 @@
 @media (max-width: 1000px) {
     .header__container {
         padding: 0 20px;
+        height: 70px;
     }
 
     .header__container img:first-of-type {
