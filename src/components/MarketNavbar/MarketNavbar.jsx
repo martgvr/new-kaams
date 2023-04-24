@@ -1,6 +1,9 @@
 import React from "react"
 import "./marketnavbar.css"
+import { Link } from 'react-router-dom';
+
 import MarketBreadcrumb from "../MarketBreadcrumb/MarketBreadcrumb"
+
 
 function MarketNavbar({ breadcrumb }) {
 	return (
@@ -8,11 +11,11 @@ function MarketNavbar({ breadcrumb }) {
 			<MarketBreadcrumb breadcrumb={breadcrumb} />
 
 			<div className="marketnavbar__categories flex-row">
-				<p>Hombre</p>
+				<Link to="/market/hombre"><p>Hombre</p></Link>
 				<div className="marketnavbar__categories--divider"></div>
-				<p>Mujer</p>
+				<Link to="/market/mujer"><p>Mujer</p></Link>
 				<div className="marketnavbar__categories--divider"></div>
-				<p>Accesorios</p>
+				<Link to="/market/accesorios"><p>Accesorios</p></Link>
 			</div>
 
 			<div className="marketnavbar__emptyspace"></div>

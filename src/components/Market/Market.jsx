@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { getData } from "../../services/firebase.service"
 
 import MarketWelcome from '../MarketWelcome/MarketWelcome'
-import MarketProducts from '../MarketProducts/MarketProducts'
 
 function Market() {
   const [data, setData] = useState([])
@@ -16,8 +15,7 @@ function Market() {
 
   return (
     <div className='market__container flex-column'>
-      <MarketWelcome  data={data} />
-      {/* <MarketProducts /> */}
+      <MarketWelcome data={data} />
     </div>
   )
 }

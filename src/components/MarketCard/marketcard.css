@@ -5,3 +5,18 @@
     width: 200px;
     height: 250px;
 }
+
+.marketcard__image {
+    height: 50%;
+}
+
+.marketcard__text {
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.marketcard__text h4 {
+    font-size: 1.2em;
+    font-weight: 400;
+}

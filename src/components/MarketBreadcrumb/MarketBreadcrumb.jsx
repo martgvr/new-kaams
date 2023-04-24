@@ -6,7 +6,7 @@ function MarketBreadcrumb({ breadcrumb }) {
 		<div className="marketnavbar__breadcrumb flex-row">
 			<div className="flex-row">
 				<p>Productos</p>
-				<img src="bread.png" alt="" />
+				<img src="/bread.png" alt="" />
 
 				{breadcrumb !== undefined &&
 					breadcrumb.map((item, index, array) => (

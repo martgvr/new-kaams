@@ -5,7 +5,7 @@ function SliderCard({ image, selectedProduct, cardClickHandler, position }) {
 	const isSelected = selectedProduct.productImage == image
 
 	const cardStyle = {
-		background: `url(${image})`,
+		backgroundImage: `url(${image})`,
 		backgroundPosition: "center center",
 		backgroundRepeat: "no-repeat",
 		backgroundSize: "cover",
