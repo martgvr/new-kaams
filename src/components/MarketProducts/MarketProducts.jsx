@@ -7,61 +7,57 @@ import Loading from "../Loading/Loading"
 import MarketCard from "../MarketCard/MarketCard"
 import MarketNavbar from "../MarketNavbar/MarketNavbar"
 
-
 function MarketProducts() {
 	const gender = useParams().gender
 	
 	const [data, setData] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
-	const [subcategories, setSubcategories] = useState([])
+	const [categories, setCategories] = useState([])
 	const [searchParams, setSearchParams] = useSearchParams()
 	const [productsFound, setProductsFound] = useState([])
 
 	useEffect(() => {
-		setProductsFound([])
-
-		getData("products").then((res) => {
-			console.log('PETICION DB');
-			let subcategoriesFound = []
-			const filteredProducts = res.filter((item) => item.gender == gender)
-
-			filteredProducts.map((item) => {
-				for (const property in item) {
-					if (property == "category") {
-						const checkExist = subcategoriesFound.find((item) => item == item[property])
-						checkExist === undefined && subcategoriesFound.push(item[property])
-					}
-				}
-			})
-
-			setSubcategories(subcategoriesFound)
-			setIsLoading(false)
-			
-			if (filteredProducts.length !== 0) {
-				setProductsFound(filteredProducts)
-				setData(filteredProducts)
-			} 
-		})
-	}, [gender])
+		getData("products").then(res => setData(res))
+	}, [])
 	
+	useEffect(() => {
+		setProductsFound([])
+		let categoriesFound = []
+		const filteredProducts = data.filter((item) => item.gender == gender)
+
+		filteredProducts.map((item) => {
+			for (const property in item) {
+				if (property == "category") {
+					const checkExist = categoriesFound.find((item) => item == item[property])
+					checkExist === undefined && categoriesFound.push(item[property])
+				}
+			}
+		})
+
+		setIsLoading(false)
+		setCategories(categoriesFound)
+
+		filteredProducts.length !== 0 && setProductsFound(filteredProducts)
+	}, [data, gender])
 	
 	let getType = searchParams.get('type')
 
 	useEffect(() => {
-		setProductsFound(data)
 		getType = searchParams.get('type')
-
+		
 		if (getType !== null) {
-			const getByType = data.filter(item => item.category == getType)
+			const getByType = data.filter(item => (item.category == getType) && (item.gender == gender))
+			setProductsFound(getByType)
+		} else {
+			const getByType = data.filter(item => item.gender == gender)
 			setProductsFound(getByType)
 		}
 	}, [getType])
-	
 
 	return (
 		<div className="market__container flex-column">
 			<div className="marketproducts__container flex-column">
-				<MarketNavbar breadcrumb={[gender, getType]} />
+				<MarketNavbar breadcrumb={[gender]} />
 
 				{isLoading ? (
 					<Loading />
@@ -73,8 +69,8 @@ function MarketProducts() {
 								<div className="filterbox__title"><p>Categorías</p></div>
 								<ul className="flex-column">
 									{
-									subcategories.length !== 0 ? 
-										subcategories.map((item) => 
+									categories.length !== 0 ? 
+										categories.map((item) => 
 											<Link to={`?type=${item}`} key={item}>
 												<li>{item.charAt(0).toUpperCase() + item.slice(1)}</li>
 											</Link>) 
