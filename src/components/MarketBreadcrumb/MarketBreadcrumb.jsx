@@ -13,8 +13,7 @@ function MarketBreadcrumb({ breadcrumb }) {
 						<>
 							<p>{item}</p>
 							{
-								index !== array.length - 1 &&
-								<img src="bread.png" alt="" />
+								index !== array.length - 1 && <img src="/bread.png" alt="" />
 							}
 						</>
 					))
