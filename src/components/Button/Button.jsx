@@ -7,7 +7,7 @@ function Button({ primary, secondary, text, borderColor }) {
 	const buttonStyle = {
 		backgroundColor: isHover ? primary : secondary,
 		color: isHover ? secondary : primary,
-        border: isHover ? `2px solid ${primary}` : `2px solid ${borderColor}`
+        border: isHover ? `2px solid ${secondary}` : `2px solid ${borderColor}`
     }
 
 	return (

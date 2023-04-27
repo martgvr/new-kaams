@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 
 import MarketNavbar from "../MarketNavbar/MarketNavbar"
+import Button from '../Button/Button'
 
 function MarketItemDetail() {
     const [productShown, setProductShown] = useState({})
@@ -40,12 +41,13 @@ function MarketItemDetail() {
                         
                         <div className='description__divider'></div>
 
-                        <div className='quantity__selector'>
-                            <p>Cantidad</p>
+                        <div className='quantity__selector flex-row'>
+                            <div className='quantity__selector--left'><p>-</p></div>
+                            <div className='quantity__selector--middle'><p>1</p></div>
+                            <div className='quantity__selector--right'><p>+</p></div>
                         </div>
-                    </div>
-                    <div className='description__bottom flex-column'>
-                        <p>Boton de agregar carrito</p>
+
+                        <Button text={'Agregar al carrito'} primary={'white'} secondary={'#222'} borderColor={'#222'} />
                     </div>
                 </div>
             </div>
