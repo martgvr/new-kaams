@@ -1,0 +1,74 @@
+.itemdetail__container {
+    grid-area: content;
+    background-color: rgb(210, 210, 210);
+    color: black;
+}
+
+.itemdetail__card {
+    gap: 20px;
+    flex-grow: 1;
+    margin: 20px;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+}
+
+.itemdetail__card--image {
+    background-color: blue;
+    width: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.itemdetail__card--description {
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.description__divider {
+    background-color: rgb(201, 201, 201);
+    height: 1px;
+    width: 100%;
+}
+
+.description__top h1 {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1.8em;
+}
+
+.description__top h2 {
+    font-weight: 200;
+}
+
+.description__top h3 {
+    margin: 20px 0;
+    font-size: 1.6em;
+    font-weight: 400;
+}
+
+/* TALLES */
+
+.clothsize__selector {
+    height: 100px;
+    padding: 25px 0;
+    gap: 10px;
+}
+
+.clothsize__selector--box {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(200, 200, 200);
+    width: 50px;
+    height: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clothsize__selector--box:hover {
+    border: 1px solid rgb(200, 200, 200);
+    background-color: rgb(50, 50, 50);
+    color: white;
+    cursor: pointer;
+}

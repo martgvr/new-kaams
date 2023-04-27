@@ -9,6 +9,7 @@ import Market from "./components/Market/Market"
 import Sidebar from "./components/Sidebar/Sidebar"
 import NotFound from "./components/NotFound/NotFound"
 import MarketProducts from "./components/MarketProducts/MarketProducts"
+import MarketItemDetail from "./components/MarketItemDetail/MarketItemDetail"
 
 function App() {
 	return (
@@ -22,6 +23,7 @@ function App() {
             <Route path='/about/' element={<About />} />
             <Route path='/market/' element={<Market />} />
             <Route path='/market/:gender' element={<MarketProducts />} />
+            <Route path='/market/:gender/:itemid' element={<MarketItemDetail />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
       </BrowserRouter>

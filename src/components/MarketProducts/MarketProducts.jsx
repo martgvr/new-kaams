@@ -82,7 +82,15 @@ function MarketProducts() {
 						</div>
 
 						<div className="marketproducts__content flex-row">
-							{productsFound.length !== 0 ? productsFound.map((item) => <MarketCard key={item.name} image={item.image} name={item.name} price={item.price} />) : <p>Nada encontrado</p>}
+							{
+								productsFound.length !== 0 ? 
+										productsFound.map((item) => 
+											<Link to={`${item.uid}`} key={item} state={{ data: data }}>
+												<MarketCard key={item.name} image={item.image} name={item.name} price={item.price} />
+											</Link>)
+										: 
+										<p>Nada encontrado</p>
+							}
 						</div>
 					</div>
 				)}
