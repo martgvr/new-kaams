@@ -1,7 +1,7 @@
 import "./button.css"
 import React, { useState } from "react"
 
-function Button({ primary, secondary, text, borderColor }) {
+function Button({ primary, secondary, text, borderColor, handleCartAdd }) {
 	const [isHover, setIsHover] = useState(false)
 
 	const buttonStyle = {
@@ -11,7 +11,7 @@ function Button({ primary, secondary, text, borderColor }) {
     }
 
 	return (
-		<div className="button" style={buttonStyle} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+		<div className="button" style={buttonStyle} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} onClick={handleCartAdd}>
 			{text}
 		</div>
 	)

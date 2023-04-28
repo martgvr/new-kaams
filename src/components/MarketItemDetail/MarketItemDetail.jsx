@@ -1,22 +1,38 @@
 import './marketitemdetail.css'
-import React, { useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
+import { cartContext } from '../../context/cart.context.jsx'
+import React, { useEffect, useState, useContext } from 'react'
 
-import MarketNavbar from "../MarketNavbar/MarketNavbar"
 import Button from '../Button/Button'
+import MarketNavbar from "../MarketNavbar/MarketNavbar"
 
 function MarketItemDetail() {
+    const [size, setSize] = useState()
+    const [count, setCount] = useState(1)
     const [productShown, setProductShown] = useState({})
 
     const location = useLocation()
     const data = location.state.data
     const { gender, itemid } = useParams()
-
+    
     useEffect(() => {
-      const productFound = data.find(item => item.uid == itemid)
-      setProductShown(productFound)
-      console.log(productFound)
+        const productFound = data.find(item => item.uid == itemid)
+        setProductShown(productFound)
     }, [])
+    
+    const handleSize = (size) => setSize(size)
+    const handleAdd = () => (count < 10) && setCount(count + 1);
+    const handleRemove = () => (count > 1) && setCount(count - 1);
+    const selectedSize = { backgroundColor: 'rgb(50, 50, 50)', color: 'white' }
+    
+    const { addToCart } = useContext(cartContext)
+
+    function handleCartAdd() {
+        console.log('Item agregado al carrito'); 
+        const { uid, description, image, name, price } = productShown
+        const itemToCart = { uid, description, image, name, price }
+        addToCart(itemToCart, count);
+    }
     
     return (
         <div className='itemdetail__container flex-column'>
@@ -31,23 +47,23 @@ function MarketItemDetail() {
                         <div className='description__divider'></div>
 
                         <div className='clothsize__selector flex-row'>
-                            <div className='clothsize__selector--box'>XS</div>
-                            <div className='clothsize__selector--box'>S</div>
-                            <div className='clothsize__selector--box'>M</div>
-                            <div className='clothsize__selector--box'>L</div>
-                            <div className='clothsize__selector--box'>XL</div>
-                            <div className='clothsize__selector--box'>XXL</div>
+                            <div className='clothsize__selector--box' onClick={() => handleSize('XS')} style={size == 'XS' ? selectedSize : {}}>XS</div>
+                            <div className='clothsize__selector--box' onClick={() => handleSize('S')} style={size == 'S' ? selectedSize : {}}>S</div>
+                            <div className='clothsize__selector--box' onClick={() => handleSize('M')} style={size == 'M' ? selectedSize : {}}>M</div>
+                            <div className='clothsize__selector--box' onClick={() => handleSize('L')} style={size == 'L' ? selectedSize : {}}>L</div>
+                            <div className='clothsize__selector--box' onClick={() => handleSize('XL')} style={size == 'XL' ? selectedSize : {}}>XL</div>
+                            <div className='clothsize__selector--box' onClick={() => handleSize('XXL')} style={size == 'XXL' ? selectedSize : {}}>XXL</div>
                         </div>
                         
                         <div className='description__divider'></div>
 
                         <div className='quantity__selector flex-row'>
-                            <div className='quantity__selector--left'><p>-</p></div>
-                            <div className='quantity__selector--middle'><p>1</p></div>
-                            <div className='quantity__selector--right'><p>+</p></div>
+                            <div className='quantity__selector--left' onClick={() => handleRemove()}><p>-</p></div>
+                            <div className='quantity__selector--middle'><p>{count}</p></div>
+                            <div className='quantity__selector--right' onClick={() => handleAdd()}><p>+</p></div>
                         </div>
 
-                        <Button text={'Agregar al carrito'} primary={'white'} secondary={'#222'} borderColor={'#222'} />
+                        <Button text={'Agregar al carrito'} primary={'white'} secondary={'#222'} borderColor={'#222'} handleCartAdd={handleCartAdd} />
                     </div>
                 </div>
             </div>

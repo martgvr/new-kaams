@@ -1,5 +1,6 @@
 import "./App.css"
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { CartContextProvider } from "../src/context/cart.context.jsx"
 
 import Cart from "./components/Cart/Cart"
 import About from "./components/About/About"
@@ -13,21 +14,23 @@ import MarketItemDetail from "./components/MarketItemDetail/MarketItemDetail"
 
 function App() {
 	return (
-    <div className="App">
-      <BrowserRouter>
-        <Sidebar />
-        <Header />
-          <Routes>
-            <Route path='/' element={<Slider />} />
-            <Route path='/cart/' element={<Cart />} />
-            <Route path='/about/' element={<About />} />
-            <Route path='/market/' element={<Market />} />
-            <Route path='/market/:gender' element={<MarketProducts />} />
-            <Route path='/market/:gender/:itemid' element={<MarketItemDetail />} />
-            <Route path='*' element={<NotFound />} />
-          </Routes>
-      </BrowserRouter>
-    </div>
+		<div className="App">
+			<BrowserRouter>
+				<CartContextProvider>
+					<Sidebar />
+					<Header />
+					<Routes>
+						<Route path="/" element={<Slider />} />
+						<Route path="/cart/" element={<Cart />} />
+						<Route path="/about/" element={<About />} />
+						<Route path="/market/" element={<Market />} />
+						<Route path="/market/:gender" element={<MarketProducts />} />
+						<Route path="/market/:gender/:itemid" element={<MarketItemDetail />} />
+						<Route path="*" element={<NotFound />} />
+					</Routes>
+				</CartContextProvider>
+			</BrowserRouter>
+		</div>
 	)
 }
 
