@@ -51,6 +51,7 @@
     height: 100px;
     padding: 25px 0;
     gap: 10px;
+    width: fit-content;
 }
 
 .clothsize__selector--box {
@@ -62,12 +63,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.5s all ease-in-out;
 }
 
 .clothsize__selector--box:hover {
     background-color: rgb(50, 50, 50);
     color: white;
     cursor: pointer;
+}
+
+.clothsize__error > div {
+    background-color: rgb(247, 234, 234);
+    transition: 0.5s all ease-in-out;
+    border: 1px solid rgb(221, 101, 101);
 }
 
 /* CANTIDAD */

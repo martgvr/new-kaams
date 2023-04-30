@@ -9,11 +9,13 @@ import MarketNavbar from "../MarketNavbar/MarketNavbar"
 function MarketItemDetail() {
     const [size, setSize] = useState()
     const [count, setCount] = useState(1)
+    const [sizeError, setSizeError] = useState(false)
     const [productShown, setProductShown] = useState({})
-
+    
     const location = useLocation()
     const data = location.state.data
     const { gender, itemid } = useParams()
+    const { addToCart } = useContext(cartContext)
     
     useEffect(() => {
         const productFound = data.find(item => item.uid == itemid)
@@ -25,15 +27,31 @@ function MarketItemDetail() {
     const handleRemove = () => (count > 1) && setCount(count - 1);
     const selectedSize = { backgroundColor: 'rgb(50, 50, 50)', color: 'white' }
     
-    const { addToCart } = useContext(cartContext)
-
-    function handleCartAdd() {
-        console.log('Item agregado al carrito'); 
+    const handleCartAdd = () => {
         const { uid, description, image, name, price } = productShown
-        const itemToCart = { uid, description, image, name, price }
-        addToCart(itemToCart, count);
+        const itemToCart = { uid, description, image, name, price, size }
+        
+        if (size !== undefined) {
+            addToCart(itemToCart, count);
+            setSizeError(false)
+            setCount(1)
+            setSize()
+        } else {
+            setSizeError(true)
+            console.log('Seleccione un talle');
+        }
     }
-    
+
+    if (sizeError) {
+        const sizeContainer = document.getElementById('sizeContainer')
+        sizeContainer.classList.add('clothsize__error')
+        
+        setTimeout(() => {
+            sizeContainer.classList.remove('clothsize__error')
+            setSizeError(false)
+        }, 500);
+    }
+
     return (
         <div className='itemdetail__container flex-column'>
             <MarketNavbar breadcrumb={[gender, 'detalle']} />
@@ -46,7 +64,7 @@ function MarketItemDetail() {
                         <h3>$ {productShown.price}</h3>
                         <div className='description__divider'></div>
 
-                        <div className='clothsize__selector flex-row'>
+                        <div className='clothsize__selector flex-row' id='sizeContainer'>
                             <div className='clothsize__selector--box' onClick={() => handleSize('XS')} style={size == 'XS' ? selectedSize : {}}>XS</div>
                             <div className='clothsize__selector--box' onClick={() => handleSize('S')} style={size == 'S' ? selectedSize : {}}>S</div>
                             <div className='clothsize__selector--box' onClick={() => handleSize('M')} style={size == 'M' ? selectedSize : {}}>M</div>

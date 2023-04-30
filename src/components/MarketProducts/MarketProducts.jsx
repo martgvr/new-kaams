@@ -54,10 +54,12 @@ function MarketProducts() {
 		}
 	}, [getType])
 
+	const styledType = { backgroundColor: 'black', color: 'white' }
+
 	return (
 		<div className="market__container flex-column">
 			<div className="marketproducts__container flex-column">
-				<MarketNavbar breadcrumb={[gender]} />
+				<MarketNavbar breadcrumb={[gender, getType]} />
 
 				{isLoading ? (
 					<Loading />
@@ -71,7 +73,7 @@ function MarketProducts() {
 									{
 									categories.length !== 0 ? 
 										categories.map((item) => 
-											<Link to={`?type=${item}`} key={item}>
+											<Link to={`?type=${item}`} key={item} style={getType == item ? styledType : {}}>
 												<li>{item.charAt(0).toUpperCase() + item.slice(1)}</li>
 											</Link>) 
 										: 
