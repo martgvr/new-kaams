@@ -1,6 +1,6 @@
 import React from "react"
 import "./marketnavbar.css"
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 import MarketBreadcrumb from "../MarketBreadcrumb/MarketBreadcrumb"
 

@@ -13,8 +13,14 @@ export function CartContextProvider({ children }) {
       cartCopy.push( {...itemToCart, quantity: quantity} );
       setCart(cartCopy);
     } else {
-      const itemIndex = cartCopy.findIndex(item => item.id === itemToCart.id);
-      cartCopy[itemIndex].quantity += quantity;
+      const itemIndex = cartCopy.findIndex(item => item.uid === itemToCart.uid && item.size == itemToCart.size);
+    
+      if (itemIndex == -1) {
+        cartCopy.push( {...itemToCart, quantity: quantity} );
+      } else {
+        cartCopy[itemIndex].quantity += quantity;
+      }
+
       setCart(cartCopy);
     }
   }

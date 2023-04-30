@@ -16,16 +16,16 @@
     filter: saturate(0) brightness(100);
 }
 
-.header__container div img {
+.header__carticon img {
     width: 30px;
     filter: invert(1);
 }
 
-.header__container > div {
+.header__carticon {
     gap: 10px;
 }
 
-.header__container > div p {
+.header__carticon p {
     background-color: rgb(163, 0, 0);
     border-radius: 100%;
     font-weight: 300;

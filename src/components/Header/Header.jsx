@@ -1,4 +1,5 @@
 import './header.css'
+import { Link } from 'react-router-dom'
 import React, { useContext } from 'react'
 import { cartContext } from '../../context/cart.context.jsx'
 
@@ -16,10 +17,12 @@ function Header() {
     <div className='header__container flex-row'>
       <img src="/logo2.png" alt="" />
 
-      <div className='flex-row'>
-        <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="" />
-        <p>{cartQuantity}</p>
-      </div>
+      <Link to="/cart">
+        <div className='header__carticon flex-row'>
+          <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="" />
+          <p>{cartQuantity}</p>
+        </div>
+      </Link>
     </div>
   )
 }

@@ -1,0 +1,52 @@
+.carttable {
+    border-spacing: 20px;
+}
+
+.carttable tr th {
+    color: rgb(80, 80, 80);
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.8em;
+}
+
+.carttable tbody {
+    text-align: center;
+}
+
+.carttable__productcol {
+    gap: 20px;
+}
+
+.carttable__productcol--image {
+    background-image: url('https://plus.unsplash.com/premium_photo-1670584258172-102db20b1da3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdCUyMHBob3RvZ3JhcGh5fGVufDB8fDB8fA%3D%3D&w=1000&q=80');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100px;
+    width: 100px;
+}
+
+.carttable__productcol--data {
+    text-align: start;
+    gap: 6px;
+}
+
+.carttable__productcol--data h4 {
+    color: rgb(180, 180, 180);
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.6em;
+}
+
+.carttable__productcol--data p {
+    font-size: 0.9em;
+}
+
+.carttable__deleteicon {
+    width: 20px;
+}
+
+.carttable__deleteicon:hover {
+    cursor: pointer;
+}
