@@ -1,7 +1,13 @@
 import "./carttable.css"
-import React from "react"
+import React, { useContext } from 'react'
+import { cartContext } from '../../context/cart.context.jsx'
 
 function CartTable({ data }) {
+	const { increaseQuantity, decreaseQuantity, removeItem } = useContext(cartContext)
+
+	const decreaseHandler = (uid, size) => decreaseQuantity(uid, size)
+	const increaseHandler = (uid, size) => increaseQuantity(uid, size)
+
 	return (
 		<table className="carttable">
 			<thead>
@@ -30,9 +36,15 @@ function CartTable({ data }) {
 							</div>
 						</td>
 						<td>$ {item.price}</td>
-						<td>{item.quantity}</td>
+						<td>
+							<div className="carttable__counter flex-row">
+								<div onClick={() => decreaseHandler(item.uid, item.size)}>-</div>
+								{item.quantity}
+								<div onClick={() => increaseHandler(item.uid, item.size)}>+</div>
+							</div>
+						</td>
 						<td>$ {item.quantity * item.price}</td>
-						<td><img src="delete.png" alt="" className="carttable__deleteicon"/></td>
+						<td><img src="delete.png" alt="" className="carttable__deleteicon" onClick={() => removeItem(item.uid, item.size)}/></td>
 					</tr>
 				))}
 			</tbody>

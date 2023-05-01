@@ -70,6 +70,9 @@ function MarketProducts() {
 							<div className="marketproducts__filters--box flex-column">
 								<div className="filterbox__title"><p>Categorías</p></div>
 								<ul className="flex-column">
+								<Link to={``} style={getType == null ? styledType : {}}>
+									<li>Todo</li>
+								</Link>
 									{
 									categories.length !== 0 ? 
 										categories.map((item) => 

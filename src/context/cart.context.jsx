@@ -6,10 +6,10 @@ export function CartContextProvider({ children }) {
   const [cart, setCart] = useState([]);
   const cartCopy = [...cart];
 
-  const isInCart = (id) => cart.some(item => item.id === id);
+  const isInCart = (uid) => cart.some(item => item.uid === uid);
 
   const addToCart = (itemToCart, quantity) => {
-    if (!isInCart(itemToCart.id)) {
+    if (!isInCart(itemToCart.uid)) {
       cartCopy.push( {...itemToCart, quantity: quantity} );
       setCart(cartCopy);
     } else {
@@ -25,18 +25,32 @@ export function CartContextProvider({ children }) {
     }
   }
 
+  const decreaseQuantity = (uid, size) => {
+    const itemIndex = cartCopy.findIndex(item => item.uid === uid && item.size == size)
+    const itemQuantity = cartCopy[itemIndex].quantity
+    itemQuantity > 1 && cartCopy[itemIndex].quantity--
+    setCart(cartCopy)
+  }
+
+  const increaseQuantity = (uid, size) => {
+    const itemIndex = cartCopy.findIndex(item => item.uid === uid && item.size == size)
+    const itemQuantity = cartCopy[itemIndex].quantity
+    itemQuantity < 10 && cartCopy[itemIndex].quantity++
+    setCart(cartCopy)
+  }
+
   const clearCart = () => setCart([]);
 
-  const removeItem = (id) => {
-    if (isInCart(id)) {
-      const itemIndex = cartCopy.findIndex((item) => item.id === id);
+  const removeItem = (uid, size) => {
+    if (isInCart(uid)) {
+      const itemIndex = cartCopy.findIndex(item => item.uid === uid && item.size == size)
       cartCopy.splice(itemIndex, 1);
       setCart(cartCopy);
     }
   };
 
   return(
-    <cartContext.Provider value={{ cart, addToCart, clearCart, removeItem }}>
+    <cartContext.Provider value={{ cart, addToCart, clearCart, removeItem, increaseQuantity, decreaseQuantity }}>
       {children}
     </cartContext.Provider>
   )

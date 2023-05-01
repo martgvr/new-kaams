@@ -44,9 +44,33 @@
 }
 
 .carttable__deleteicon {
-    width: 20px;
+    margin-top: 8px;
+    width: 40px;
+    padding: 6px;
+    border-radius: 100%;
 }
 
 .carttable__deleteicon:hover {
     cursor: pointer;
+    background-color: rgb(220, 220, 220);
+}
+
+.carttable__counter {
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.carttable__counter > div {
+    border-radius: 100%;
+    background-color: rgb(233, 233, 233);
+    width: 27px;
+    font-weight: 400;
+    font-size: 1em;
+}
+
+.carttable__counter > div:hover {
+    cursor: pointer;
+    background-color: rgb(70, 70, 70);
+    color: white;
 }
