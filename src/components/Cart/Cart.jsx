@@ -7,7 +7,7 @@ import Button from "../Button/Button"
 import CartTable from "../CartTable/CartTable"
 
 function Cart() {
-	const { cart } = useContext(cartContext)
+	const { cart, clearCart } = useContext(cartContext)
 
 	let cartTotal = 0
 
@@ -54,8 +54,9 @@ function Cart() {
 							</table>
 						</div>
 
-						<div className="cart__checkout--box">
-							<p>Botón</p>
+						<div className="cart__checkout--box flex-row">
+							<Button text={'Vaciar carrito'} handleCartAdd={clearCart}/>
+							<Link to="/checkout"><Button text={'Realizar orden de compra'}/></Link>
 						</div>
 					</div>
 				</div>

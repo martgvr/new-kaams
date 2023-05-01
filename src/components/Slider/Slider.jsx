@@ -13,7 +13,6 @@ function Slider() {
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
 
-
   useEffect(() => {
 		getData("season").then((res) => {
       let products = []
@@ -35,7 +34,7 @@ function Slider() {
     <>
       {
         isLoading ? 
-          <Loading text={'Conectando a la base de datos'} />
+          <Loading/>
           :
           <div className='slider__container'>
             <div className='slider__leftside flex-column'>

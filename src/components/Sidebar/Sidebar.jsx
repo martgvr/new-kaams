@@ -41,7 +41,6 @@ function Sidebar() {
           <Link to="/" onClick={sidebarCloseHandler}><li>Home</li></Link>
           <Link to="/market" onClick={sidebarCloseHandler}><li>Productos</li></Link>
           <Link to="/cart" onClick={sidebarCloseHandler}><li>Carrito</li></Link>
-          <Link to="/about" onClick={sidebarCloseHandler}><li>Nosotros</li></Link>
         </ul>
       </div>
 
