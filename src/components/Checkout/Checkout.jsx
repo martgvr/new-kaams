@@ -21,17 +21,21 @@ function Checkout() {
 					<p>Completar tus datos personales</p>
 				</div>
 				<div className="checkout__breadcrumb--item">
-					<h2>3</h2>
+					<h2 style={{ color: '#ccc' }}>3</h2>
 					<p>Nos pondremos en contacto con vos</p>
 				</div>
 			</div>
 
-			<h1>Estamos muy cerca de finalizar tu pedido :D</h1>
-			<p>Completá tus datos personales con información real, tené en cuenta que vamos a utilizar esos datos para comunicarnos con vos, y así coordinar el pago y el envío.</p>
+            <div className="checkout__formbox">
+                <div className="checkout__formbox--title flex-column">
+                    <h1>Estamos muy cerca de finalizar tu pedido :D</h1>
+                    <p>Completá tus datos personales con información real, tené en cuenta que vamos a utilizar esos datos para comunicarnos con vos, y así coordinar el pago y el envío.</p>
+                </div>
 
-			<div className="checkout__form">
-				<CheckoutForm data={cart} />
-			</div>
+                <div className="checkout__formbox--form flex-column">
+                    <CheckoutForm data={cart} />
+                </div>
+            </div>
 		</div>
 	)
 }

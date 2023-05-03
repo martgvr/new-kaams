@@ -1,5 +1,14 @@
+.checkout__form {
+    width: 400px;
+}
+
 .checkout__form--fields {
     gap: 10px;
+}
+
+.checkout__form--fields p {
+    font-size: 0.8em;
+    color: red;
 }
 
 .checkout__form--fields input {
