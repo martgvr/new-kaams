@@ -2,10 +2,11 @@
 
 .checkout__container {
     grid-area: content;
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(240, 240, 240);
     color: black;
     align-items: center;
     gap: 40px;
+    padding: 60px;
 }
 
 /* STEPS BREADCRUMB */
@@ -13,7 +14,7 @@
 .checkout__breadcrumb {
     position: relative;
     gap: 20px;
-    margin-top: 60px;
+    /* margin-top: 60px; */
 }
 
 .checkout__breadcrumb--firstLine {
@@ -26,7 +27,7 @@
 }
 
 .checkout__breadcrumb--secondLine {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(180, 180, 180);
     position: absolute;
     top: 18px;
     height: 6px;
@@ -44,7 +45,7 @@
 }
 
 .checkout__breadcrumb--item h2 {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(180, 180, 180);
     aspect-ratio: 1;
     text-align: center;
     border-radius: 100%;
@@ -70,14 +71,16 @@
 /* FORM BOX */
 
 .checkout__formbox {
-    width: 100%;
+    width: 80%;
     flex-grow: 1;
 
     background-color: white;
 
     display: grid;
-    grid-template-columns: 600px 1fr;
+    grid-template-columns: 450px 1fr;
     grid-template-areas: "checkout__formbox--title checkout__formbox--form";
+    border: 2px solid rgb(80, 80, 80);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .checkout__formbox--title {
@@ -109,8 +112,10 @@
     .checkout__formbox {
         grid-template-columns: 1fr;
         grid-template-areas: "checkout__formbox--title" "checkout__formbox--form";
+        border: 0;
+        width: 100%;
     }
     .checkout__container {
-        padding-bottom: 70px;
+        padding: 70px 0;
     }
 }

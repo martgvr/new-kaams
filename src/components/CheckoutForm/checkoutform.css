@@ -1,23 +1,39 @@
+.checkoutform__container {
+    width: 90%;
+}
+
 .checkout__form {
-    width: 400px;
+    gap: 20px;
 }
 
-.checkout__form--fields {
-    gap: 10px;
-}
-
-.checkout__form--fields p {
-    font-size: 0.8em;
+.checkout__form p {
+    font-size: 0.7em;
     color: red;
 }
 
-.checkout__form--fields input {
+.checkout__form input {
     outline: 0;
     padding: 8px;
     border-radius: 4px;
     border: 1px solid rgb(177, 177, 177);
 }
 
-.checkout__form--fields input:focus {
+.checkout__form input:focus {
     border: 1px solid black;
+}
+
+.checkout__form--boxes {
+    gap: 20px;
+}
+
+.form__box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__box > div {
+    display: flex;
+    flex-direction: column;
+    height: 90px;
 }

@@ -21,7 +21,7 @@ function Checkout() {
 					<p>Completar tus datos personales</p>
 				</div>
 				<div className="checkout__breadcrumb--item">
-					<h2 style={{ color: '#ccc' }}>3</h2>
+					<h2 style={{ color: 'white' }}>3</h2>
 					<p>Nos pondremos en contacto con vos</p>
 				</div>
 			</div>
