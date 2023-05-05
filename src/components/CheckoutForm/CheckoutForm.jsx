@@ -59,7 +59,7 @@ function CheckoutForm({ data }) {
 					// navigate("../", { replace: true });
 				}}
 			>
-				{({ errors, values, touched, handleSubmit, handleChange, handleBlur }) => (
+				{({ errors, values, touched, handleSubmit, handleChange, handleBlur, resetForm }) => (
 					<form className="checkout__form flex-column" onSubmit={handleSubmit}>
 						<div className="checkout__form--boxes flex-row">
 							<div className="form__box">
@@ -149,7 +149,10 @@ function CheckoutForm({ data }) {
 							</div>
 						</div>
 
-						<button type="submit">Finalizar compra</button>
+            <div className="checkout__form--buttons flex-row">
+						  <button type="reset" onClick={resetForm}>Limpiar formulario</button>
+						  <button type="submit">Finalizar compra</button>
+            </div>
 					</form>
 				)}
 			</Formik>

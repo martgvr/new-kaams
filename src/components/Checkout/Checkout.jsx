@@ -9,17 +9,21 @@ function Checkout() {
 
 	return (
 		<div className="checkout__container flex-column">
+
 			<div className="checkout__breadcrumb flex-row">
 				<div className="checkout__breadcrumb--firstLine"></div>
 				<div className="checkout__breadcrumb--secondLine"></div>
+
 				<div className="checkout__breadcrumb--item done">
 					<h2>1</h2>
 					<p>Agregar productos al carrito</p>
 				</div>
+
 				<div className="checkout__breadcrumb--item active">
 					<h2>2</h2>
 					<p>Completar tus datos personales</p>
 				</div>
+
 				<div className="checkout__breadcrumb--item">
 					<h2 style={{ color: 'white' }}>3</h2>
 					<p>Nos pondremos en contacto con vos</p>

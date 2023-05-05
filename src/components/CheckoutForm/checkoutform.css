@@ -37,3 +37,29 @@
     flex-direction: column;
     height: 90px;
 }
+
+.checkout__form--buttons {
+    justify-content: space-between;
+}
+
+.checkout__form--buttons button {
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.checkout__form--buttons button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+    .checkout__form--boxes {
+       flex-direction: column;
+    }
+    .form__box {
+        width: 100%;
+    }
+}
