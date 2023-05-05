@@ -55,6 +55,16 @@
     width: 100%;
 }
 
+.filterbox__categories--mobile {
+    display: none;
+
+    padding: 6px 22px;
+    border: 1px solid rgb(50, 50, 50);
+    background-color: white;
+    border-radius: 6px;
+    font-size: 0.7em;
+}
+
 @media (max-width: 1100px) {
     .marketproducts__grid { flex-direction: column; }
     .marketproducts__filters { padding: 0px; }
@@ -64,5 +74,25 @@
     .marketproducts__filters--box ul {
         flex-direction: row;
         gap: 20px;
+    }
+
+    .marketproducts__filters--box {
+        align-items: center;
+        gap: 20px;
+    }
+
+    .filterbox__title {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: 0;
+        width: fit-content;
+    }
+
+    .filterbox__categories--desktop {
+        display: none;
+    }
+
+    .filterbox__categories--mobile{
+        display: inline;
     }
 }

@@ -57,6 +57,7 @@ function MarketItemDetail() {
             <MarketNavbar breadcrumb={[gender, 'detalle']} />
             <div className='itemdetail__card flex-row'>
                 <div className='itemdetail__card--image' style={{ backgroundImage: `url(${productShown.image})` }}></div>
+                
                 <div className='itemdetail__card--description flex-column'>
                     <div className='description__top flex-column'>
                         <h1>{productShown.name}</h1>
@@ -81,9 +82,12 @@ function MarketItemDetail() {
                             <div className='quantity__selector--right' onClick={() => handleAdd()}><p>+</p></div>
                         </div>
 
-                        <Button text={'Agregar al carrito'} primary={'white'} secondary={'#222'} borderColor={'#222'} handleCartAdd={handleCartAdd} />
+                        <div className='itemdetail__button flex-row'>
+                            <Button text={'Agregar al carrito'} primary={'white'} secondary={'#222'} borderColor={'#222'} handleCartAdd={handleCartAdd} />
+                        </div>
                     </div>
                 </div>
+                
             </div>
         </div>
     )

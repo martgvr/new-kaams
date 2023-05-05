@@ -4,6 +4,12 @@
     color: black;
     width: 200px;
     height: 250px;
+    transition: 0.05s all ease-in-out;
+}
+
+.marketcard__container:hover {
+    transform: scale(1.03);
+    transition: 0.1s all ease-in-out;
 }
 
 .marketcard__image {
