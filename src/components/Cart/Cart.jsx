@@ -26,7 +26,7 @@ function Cart() {
 					<Link to="/market"><Button text={'Productos'} /></Link>
 				</div>
 			) : (
-				<div className="cart__container">
+				<div className="cart__container flex-column">
 					<div className="cart__list flex-column">
 						<h1 className="cart__list--title">Items en el carrito</h1>
 						<CartTable data={cart} />

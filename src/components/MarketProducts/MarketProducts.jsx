@@ -1,7 +1,7 @@
 import "./marketproducts.css"
 import { useEffect, useState } from "react"
 import { getData } from "../../services/firebase.service"
-import { useParams, Link, useSearchParams, redirect, useNavigate } from "react-router-dom"
+import { useParams, Link, useSearchParams, useNavigate } from "react-router-dom"
 
 import Loading from "../Loading/Loading"
 import MarketCard from "../MarketCard/MarketCard"

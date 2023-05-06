@@ -92,6 +92,8 @@
         grid-template-columns: 1fr;
         grid-template-areas:    "cart__list"
                                 "cart__checkout";
+
+        grid-template-rows: 1fr auto;
     }
 
     .cart__list--title {
@@ -101,11 +103,20 @@
         color: black;
         align-self: center;
     }
+
+    .cart__checkout {
+        padding: 0;
+        padding-top: 20px;
+    }
 }
 
 @media (max-width: 900px) {
     .empty__cart h1 {
         font-size: 1.8em;
+    }
+    .empty__cart h1, p {
+        width: 90%;
+        text-align: center;
     }
 }
 
@@ -125,10 +136,11 @@
     }
 
     .empty__cart h1 {
-        font-size: 1.3em;
+        font-size: 1.1em;
     }
 
     .empty__cart p {
-        font-size: 0.85em;
+        font-size: 0.8em;
+        margin-top: 2px;
     }
 }

@@ -74,3 +74,34 @@
     background-color: rgb(70, 70, 70);
     color: white;
 }
+
+.carttable__tablerow--mobile {
+    display: none;
+}
+
+.carttable__tablehead--mobile {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .carttable__tablerow--desktop { display: none; }
+    .carttable__tablerow--mobile { display: table-row; }
+    .carttable__tablehead--desktop { display: none; }
+    .carttable__tablehead--mobile { display: table-row; }
+
+    .carttable {
+        border-collapse:separate;
+        border-spacing:0 20px;
+    }
+
+    .carttable__counter {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .carttable__productcol--image {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+    }
+  }
