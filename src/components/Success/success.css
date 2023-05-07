@@ -1,0 +1,60 @@
+.success__container {
+    grid-area: content;
+
+    background-color: rgb(240, 240, 240);
+    color: black;
+    
+    align-items: center;
+    padding: 60px;
+    gap: 40px;
+}
+
+.success__content {
+    height: 100%;
+    gap: 30px;
+}
+
+.success__content--image {
+    width: 200px;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/7518/7518748.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.success__content--text {
+    justify-content: center;
+    flex-grow: 1;
+}
+
+@media (max-width: 800px) {
+    .success__container {
+        padding: 40px 20px;
+    }
+
+    .success__content--image {
+        width: 100%;
+        height: 220px;
+    }
+
+    .success__content {
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .success__content--text {
+        flex-grow: 0;
+        justify-content: flex-start;
+    }
+
+    .success__content--text h1 {
+        font-size: 1.4em;
+        text-align: center;
+    }
+    
+    .success__content--text p {
+        width: 100%;
+    }
+}

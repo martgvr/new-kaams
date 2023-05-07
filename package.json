@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "alertifyjs": "^1.13.1",
     "firebase": "^9.20.0",
     "formik": "^2.2.9",

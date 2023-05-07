@@ -1,8 +1,17 @@
 import React from "react"
 import "./checkoutform.css"
 import { Formik } from "formik"
+import { useNavigate } from "react-router-dom"
 
-function CheckoutForm({ data }) {
+import emailjs from '@emailjs/browser'
+
+import alertify from 'alertifyjs'
+import 'alertifyjs/build/css/alertify.css'
+
+function CheckoutForm({ data, clearCart }) {
+	const navigate = useNavigate()
+	emailjs.init(import.meta.env.VITE_PUBLIC_KEY)
+
 	return (
 		<div className="checkoutform__container">
 			<Formik
@@ -47,18 +56,32 @@ function CheckoutForm({ data }) {
 					}
 					return errors
 				}}
+
 				onSubmit={(values) => {
+					let orderNumber = Math.floor(Math.random() * 10000000)
 					let total = 0
 					data.forEach((item) => (total += item.price * item.quantity))
-					const dataToWrite = { buyer: { ...values }, items: [...data], total: total, date: new Date() }
 
-					console.log(dataToWrite)
+					let articles = ''
+					data.map(item => articles += `ID: ${item.uid} | Nombre: ${item.name} | Talle: ${item.size} | Precio unidad: ${item.price} | Cantidad: ${item.quantity}\n`)
 
-					// clearCart(); // Limpia el carrito
-					// addToDatabase({ dataToWrite }); // Llama a la función addToDatabase
-					// navigate("../", { replace: true });
+					const buyer = `Nombre: ${values.name}\nTeléfono: ${values.telephone}\nCorreo electrónico: ${values.mail}\nDirección: ${values.address}\nCiudad: ${values.city}\nBarrio: ${values.neighborhood}`
 
-					window.location.replace(`https://wa.me/1155823649?text=I'm%20interested%20in%20your%20car%20for%20sale`);
+					emailjs.send(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID ,{
+						order: orderNumber,
+						buyer: buyer,
+						total: total,
+						articles: articles,
+					})
+					.then((result) => {
+						alertify.success('La orden fue cargada con éxito. Redirigiendo...')
+						setTimeout(() => {
+								navigate("../success", { replace: true, state: { orderNumber: orderNumber } })
+								clearCart()
+							}, 2000);
+						}, (error) => {
+						alertify.error('No se pudo cargar la orden. Intente de nuevo en unos instantes.')
+					});
 				}}
 			>
 				{({ errors, values, touched, handleSubmit, handleChange, handleBlur, resetForm }) => (
