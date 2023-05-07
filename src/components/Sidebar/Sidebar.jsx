@@ -40,7 +40,7 @@ function Sidebar() {
       <div className='sidebar__menu flex-column' style={{ display: isOpen ? 'flex' : 'none' }}>
         <ul className='flex-column'>
           <Link to="/" onClick={sidebarCloseHandler}><li style={location == '/' ? activeItem : {}}>Home</li></Link>
-          <Link to="/market" onClick={sidebarCloseHandler}><li style={location == '/market' ? activeItem : {}}>Productos</li></Link>
+          <Link to="/market" onClick={sidebarCloseHandler}><li style={location.includes('/market') ? activeItem : {}}>Productos</li></Link>
           <Link to="/cart" onClick={sidebarCloseHandler}><li style={location == '/cart' ? activeItem : {}}>Carrito</li></Link>
         </ul>
       </div>

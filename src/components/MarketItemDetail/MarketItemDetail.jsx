@@ -3,6 +3,9 @@ import { useLocation, useParams } from 'react-router-dom'
 import { cartContext } from '../../context/cart.context.jsx'
 import React, { useEffect, useState, useContext } from 'react'
 
+import alertify from 'alertifyjs'
+import 'alertifyjs/build/css/alertify.css'
+
 import Button from '../Button/Button'
 import MarketNavbar from "../MarketNavbar/MarketNavbar"
 
@@ -32,13 +35,14 @@ function MarketItemDetail() {
         const itemToCart = { uid, description, image, name, price, size }
         
         if (size !== undefined) {
+            alertify.success('Item agregado al carrito')
             addToCart(itemToCart, count);
             setSizeError(false)
             setCount(1)
             setSize()
         } else {
             setSizeError(true)
-            console.log('Seleccione un talle');
+            alertify.error('Seleccione un talle')
         }
     }
 

@@ -57,6 +57,8 @@ function CheckoutForm({ data }) {
 					// clearCart(); // Limpia el carrito
 					// addToDatabase({ dataToWrite }); // Llama a la función addToDatabase
 					// navigate("../", { replace: true });
+
+					window.location.replace(`https://wa.me/1155823649?text=I'm%20interested%20in%20your%20car%20for%20sale`);
 				}}
 			>
 				{({ errors, values, touched, handleSubmit, handleChange, handleBlur, resetForm }) => (

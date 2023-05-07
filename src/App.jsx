@@ -13,6 +13,8 @@ import MarketProducts from "./components/MarketProducts/MarketProducts"
 import MarketItemDetail from "./components/MarketItemDetail/MarketItemDetail"
 
 function App() {
+	console.log(import.meta.env)
+	
 	return (
 		<div className="App">
 			<BrowserRouter>
