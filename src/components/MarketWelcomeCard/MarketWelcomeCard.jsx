@@ -1,6 +1,7 @@
 import React from 'react'
 import './marketwelcomecard.css'
 import Button from '../Button/Button'
+import { Link } from 'react-router-dom'
 
 function MarketWelcomeCard({ image, title, link }) {
   const cardStyle = {
@@ -15,7 +16,9 @@ function MarketWelcomeCard({ image, title, link }) {
       <div className='marketwelcomecard__image' style={cardStyle}></div>
       <div className='marketwelcomecard__description flex-column'>
         <h3>{title}</h3>
-        <Button primary={'black'} secondary={'white'}  borderColor={'#444'} text={'Conocer más'} />
+        <Link to={link}>
+          <Button primary={'black'} secondary={'white'}  borderColor={'#444'} text={'Conocer más'} />
+        </Link>
       </div>
     </div>
   )

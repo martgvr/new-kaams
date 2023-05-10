@@ -81,7 +81,7 @@ function MarketProducts() {
 										{
 										categories.length !== 0 ? 
 											categories.map((item) => 
-												<Link to={`?type=${item}`} key={item} style={getType == item ? styledType : {}}>
+												<Link to={`?type=${item}`} key={`desktop-${item}`} style={getType == item ? styledType : {}}>
 													<li>{item.charAt(0).toUpperCase() + item.slice(1)}</li>
 												</Link>) 
 											: 
@@ -94,10 +94,10 @@ function MarketProducts() {
 									{
 										categories.length !== 0 ? 
 											categories.map((item) => 
-												<option value={item}>{item.charAt(0).toUpperCase() + item.slice(1)}</option>
+												<option value={item} key={item}>{item.charAt(0).toUpperCase() + item.slice(1)}</option>
 											)
 											: 
-											<p>Nada encontrado</p>
+											<option>Nada encontrado</option>
 									}
 								</select>
 							</div>
@@ -108,8 +108,8 @@ function MarketProducts() {
 							{
 								productsFound.length !== 0 ? 
 										productsFound.map((item) => 
-											<Link to={`${item.uid}`} key={item} state={{ data: data }}>
-												<MarketCard key={item.name} image={item.image} name={item.name} price={item.price} />
+											<Link to={`${item.uid}`} key={item.name} state={{ data: data }}>
+												<MarketCard image={item.image} name={item.name} price={item.price} />
 											</Link>)
 										: 
 										<p>Nada encontrado</p>

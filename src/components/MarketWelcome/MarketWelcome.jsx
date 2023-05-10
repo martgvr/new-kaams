@@ -37,11 +37,11 @@ function MarketWelcome({ data }) {
 				<Loading />
 			) : (
 				<>
-					<MarketWelcomeBanner title={banner.title} description={banner.description} image={banner.image} />
+					<MarketWelcomeBanner title={banner.title} description={banner.description} image={banner.image} link={banner.link} />
 
 					<div className="marketwelcome__cardscontainer flex-row">
 						{
-							cardsData.map(item => <MarketWelcomeCard title={item.title} image={item.image} />)
+							cardsData.map(item => <MarketWelcomeCard key={item.title} title={item.title} image={item.image} link={item.link} />)
 						}
 					</div>
 				</>

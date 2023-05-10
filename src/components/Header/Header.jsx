@@ -15,7 +15,9 @@ function Header() {
 
   return (
     <div className='header__container flex-row'>
-      <img src="/logo2.png" alt="" />
+      <Link to="/">
+        <img src="/logo2.png" alt="" className='header__logo' />
+      </Link>
 
       <Link to="/cart">
         <div className='header__carticon flex-row'>

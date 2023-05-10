@@ -1,9 +1,11 @@
 import './sidebar.css'
-import React, { useState, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { getData } from "../../services/firebase.service"
+import React, { useState, useRef, useEffect } from 'react'
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [socialNetworks, setSocialNetworks] = useState()
   
   const location = useLocation().pathname
   const windowWidth = useRef(window.innerWidth).current
@@ -19,6 +21,13 @@ function Sidebar() {
   const desktopSidebar = { width: isOpen && '270px' }
   const mobileSidebar = { height: isOpen && '320px',  flexDirection: isOpen && 'column' }
   responsiveSidebar = windowWidth < 1500 ? mobileSidebar : desktopSidebar
+
+  useEffect(() => {
+		getData("social").then((res) => {
+      setSocialNetworks(res)
+      console.log(res[0].instagram);
+    })
+  }, [])
 
   return (
     <div className='sidebar__container' style={responsiveSidebar} onMouseEnter={sidebarOpenHandler} onMouseLeave={sidebarCloseHandler}>
@@ -48,8 +57,17 @@ function Sidebar() {
       <div>
         
         <div className='sidebar__social' style={{ transform: (windowWidth > 1500 && isOpen) && 'rotate(90deg)' }}>
-          <img src="https://pixlok.com/wp-content/uploads/2021/07/Instagram-Free-Icon-rdfd.png" alt="" style={{ transform: (windowWidth > 1500 && isOpen) && 'rotate(-90deg)' }}/>
-          <img src="https://cdn-icons-png.flaticon.com/512/1617/1617541.png" alt="" style={{ transform: (windowWidth > 1500 && isOpen) && 'rotate(-90deg)' }} />
+          {
+            socialNetworks !== undefined &&
+            <>
+              <a href={socialNetworks[0].instagram}>
+                <img src="https://pixlok.com/wp-content/uploads/2021/07/Instagram-Free-Icon-rdfd.png" alt="" style={{ transform: (windowWidth > 1500 && isOpen) && 'rotate(-90deg)' }}/>
+              </a>
+              <a href={`https://wa.me/${socialNetworks[0].whatsapp}`}>
+                <img src="https://cdn-icons-png.flaticon.com/512/1617/1617541.png" alt="" style={{ transform: (windowWidth > 1500 && isOpen) && 'rotate(-90deg)' }} />
+              </a>
+            </>
+          }
         </div>
       </div>
 

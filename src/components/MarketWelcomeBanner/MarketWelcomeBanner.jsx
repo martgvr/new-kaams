@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react"
-import Button from '../Button/Button'
 import "./marketwelcomebanner.css"
+import Button from '../Button/Button'
+import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from "react"
 
 function MarketWelcomeBanner({ title, description, image, link }) {
 	const [bannerData, setBannerData] = useState({ title, description, image, link })
 	const [transition, setTransition] = useState(false)
 	const [initial, setInitial] = useState(true)
+
 	const transitionTime = 2000
 
 	const bannerStyle = {
@@ -33,7 +35,9 @@ function MarketWelcomeBanner({ title, description, image, link }) {
 				<p>{bannerData.description}</p>
 				{
 					bannerData.title !== undefined &&
-				<Button primary={"black"} secondary={"white"} borderColor={"#444"} text={"Conocer más"} />
+					<Link to={bannerData.link}>
+						<Button primary={"black"} secondary={"white"} borderColor={"#444"} text={"Conocer más"} />
+					</Link>
 				}
 			</div>
 

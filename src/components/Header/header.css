@@ -11,7 +11,7 @@
     background-color: rgb(15, 15, 15);
 }
 
-.header__container > img {
+.header__logo {
     width: 360px;
     filter: saturate(0) brightness(100);
 }
@@ -48,13 +48,13 @@
         height: 70px;
     }
 
-    .header__container > img {
+    .header__logo {
         width: 320px;
     }
 }
 
 @media (max-width: 600px) {
-    .header__container > img {
+    .header__logo {
         width: 260px;
     }
 }
