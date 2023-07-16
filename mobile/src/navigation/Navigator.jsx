@@ -1,6 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native"
 import { Platform, StyleSheet, View, StatusBar } from "react-native"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import Orders from "../screens/Orders"
 import Config from "../screens/Config"
@@ -13,11 +14,11 @@ const Navigator = () => {
     return (
         <View style={styles.container}>
             <NavigationContainer>   
-                <Tab.Navigator initialRouteName="Products">
-                    <Tab.Screen name="Productos" component={Products} />
-                    <Tab.Screen name="Ordenes" component={Orders} />
-                    <Tab.Screen name="Banners" component={Banners} />
-                    <Tab.Screen name="Config" component={Config} />
+                <Tab.Navigator initialRouteName="Products" screenOptions={{ tabBarLabelStyle: styles.tabLabelStyle, tabBarStyle: styles.tabStyle }}>
+                    <Tab.Screen name="Productos" component={Products} options={{ tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="home" color={color} size={size} />) }} />
+                    <Tab.Screen name="Ordenes" component={Orders} options={{ tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="cart" color={color} size={size} />) }} />
+                    <Tab.Screen name="Banners" component={Banners} options={{ tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="image" color={color} size={size} />) }} />
+                    <Tab.Screen name="Config" component={Config} options={{ tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="cog" color={color} size={size} />) }} />
                 </Tab.Navigator>
             </NavigationContainer>
         </View>
@@ -30,5 +31,8 @@ const styles = StyleSheet.create({
     container: {
        	flex: 1,
 		paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    }
+    },
+    tabLabelStyle: {
+        fontSize: 14,
+    },
 })

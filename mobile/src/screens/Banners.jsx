@@ -4,8 +4,8 @@ import { StyleSheet, Text, View } from "react-native"
 
 const Banners = () => {
 	useEffect(() => {
-		getData("market").then((res) => console.log(res))
-		getData("season").then((res) => console.log(res))
+		// getData("market").then((res) => console.log(res))
+		// getData("season").then((res) => console.log(res))
 	}, [])
 
 	return (
