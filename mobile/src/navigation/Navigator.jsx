@@ -1,24 +1,24 @@
 import { NavigationContainer } from "@react-navigation/native"
 import { Platform, StyleSheet, View, StatusBar } from "react-native"
-import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
 import Orders from "../screens/Orders"
 import Config from "../screens/Config"
 import Banners from "../screens/Banners"
 import Products from "../screens/Products"
 
-const Stack = createNativeStackNavigator()
+const Tab = createBottomTabNavigator()
 
 const Navigator = () => {
     return (
         <View style={styles.container}>
-            <NavigationContainer>
-                <Stack.Navigator>
-                    <Stack.Screen name="Products" component={Products} />
-                    <Stack.Screen name="Banners" component={Banners} />
-                    <Stack.Screen name="Orders" component={Orders} />
-                    <Stack.Screen name="Config" component={Config} />
-                </Stack.Navigator>
+            <NavigationContainer>   
+                <Tab.Navigator initialRouteName="Products">
+                    <Tab.Screen name="Productos" component={Products} />
+                    <Tab.Screen name="Ordenes" component={Orders} />
+                    <Tab.Screen name="Banners" component={Banners} />
+                    <Tab.Screen name="Config" component={Config} />
+                </Tab.Navigator>
             </NavigationContainer>
         </View>
     )
