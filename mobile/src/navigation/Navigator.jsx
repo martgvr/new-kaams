@@ -14,10 +14,10 @@ const Navigator = () => {
         <View style={styles.container}>
             <NavigationContainer>
                 <Stack.Navigator>
+                    <Stack.Screen name="Products" component={Products} />
+                    <Stack.Screen name="Banners" component={Banners} />
                     <Stack.Screen name="Orders" component={Orders} />
                     <Stack.Screen name="Config" component={Config} />
-                    <Stack.Screen name="Banners" component={Banners} />
-                    <Stack.Screen name="Products" component={Products} />
                 </Stack.Navigator>
             </NavigationContainer>
         </View>
