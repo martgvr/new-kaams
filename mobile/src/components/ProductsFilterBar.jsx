@@ -1,10 +1,10 @@
 import { Picker } from "@react-native-picker/picker"
 import { StyleSheet, Text, View } from "react-native"
+import { COLORS } from "../global/theme"
 
-const ProductsFilterBar = ({ gender, setGender, category, setCategory }) => {
+const ProductsFilterBar = ({ gender, setGender, categorySelected, setCategorySelected, categoriesList }) => {
 	return (
 		<View style={styles.container}>
-
 			<View style={styles.filterCell}>
 				<Text style={styles.text}>Genero:</Text>
 
@@ -21,11 +21,9 @@ const ProductsFilterBar = ({ gender, setGender, category, setCategory }) => {
 				<Text style={styles.text}>Categoría:</Text>
 
 				<View style={styles.pickerContainer}>
-					<Picker selectedValue={category} onValueChange={(itemValue, itemIndex) => setCategory(itemValue)}>
+					<Picker selectedValue={categorySelected} onValueChange={(itemValue, itemIndex) => setCategorySelected(itemValue)}>
 						<Picker.Item label="Todos" value="all" />
-                        {   category !== '' &&
-                            category.map(item => <Picker.Item label={item} value={item} key={item} />)
-                        }
+						{categoriesList !== "" && categoriesList.map((item) => <Picker.Item label={item} value={item} key={item} />)}
 					</Picker>
 				</View>
 			</View>
@@ -39,24 +37,25 @@ const styles = StyleSheet.create({
 	container: {
 		alignItems: "center",
 		flexDirection: "row",
-		backgroundColor: "#888",
+		backgroundColor: COLORS.tertiary,
 		justifyContent: "space-between",
+        gap: 16,
+		paddingVertical: 10,
 		paddingHorizontal: 10,
-        paddingVertical: 10,
 	},
-	text: {
-        color: "white",
+	filterCell: {
+		gap: 10,
+        flex: 1,
+		alignItems: "center",
+		flexDirection: "row",
 	},
-    filterCell: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 10,
-    },
-    pickerContainer: {
-		width: 110,
-        height: 30,
-		borderRadius: 10,
+	pickerContainer: {
+		height: 30,
+        flexGrow: 1,
 		backgroundColor: "#eee",
-        justifyContent: 'center'
+		justifyContent: "center",
+        borderWidth: 1,
+		borderRadius: 10,
+        borderColor: COLORS.accents,
 	},
 })
