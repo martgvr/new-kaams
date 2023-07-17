@@ -1,6 +1,6 @@
 import { COLORS } from "../global/theme"
 import { useRoute } from '@react-navigation/native'
-import { StyleSheet, Text, View, Pressable } from "react-native"
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native"
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const Header = () => {
@@ -8,17 +8,17 @@ const Header = () => {
 
 	return (
 		<View style={styles.container}>
-            <Pressable style={styles.pressable}>
+            <TouchableOpacity style={styles.pressable}>
                 <MaterialCommunityIcons name="text-box-search-outline" color={COLORS.accents} size={24} />
                 <Text style={styles.iconText}>Buscar</Text>
-            </Pressable>
+            </TouchableOpacity>
 
 			<Text style={styles.headerText}>{route.name}</Text>
 
-            <Pressable style={styles.pressable}>
+            <TouchableOpacity style={styles.pressable}>
                 <MaterialCommunityIcons name="plus-thick" color={COLORS.accents} size={24} />
                 <Text style={styles.iconText}>Agregar</Text>
-            </Pressable>
+            </TouchableOpacity>
 		</View>
 	)
 }
@@ -35,15 +35,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
 		justifyContent: "space-between",
 		backgroundColor: COLORS.primary,
-
-		shadowColor: "#000",
-		shadowOffset: {
-			width: 0,
-			height: 12,
-		},
-		shadowOpacity: 0.58,
-		shadowRadius: 16.0,
-		elevation: 24,
 	},
     headerText: {
 		fontSize: 18,

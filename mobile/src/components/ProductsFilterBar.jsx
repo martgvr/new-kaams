@@ -2,14 +2,14 @@ import { COLORS } from "../global/theme"
 import { Picker } from "@react-native-picker/picker"
 import { StyleSheet, Text, View } from "react-native"
 
-const ProductsFilterBar = ({ gender, setGender, categorySelected, setCategorySelected, categoriesList }) => {
+const ProductsFilterBar = ({ genderSelected, setGenderSelected, categorySelected, setCategorySelected, categoriesList }) => {
 	return (
 		<View style={styles.container}>
 			<View style={styles.filterCell}>
 				<Text style={styles.text}>Genero:</Text>
 
 				<View style={styles.pickerContainer}>
-					<Picker selectedValue={gender} onValueChange={(itemValue, itemIndex) => setGender(itemValue)}>
+					<Picker selectedValue={genderSelected} onValueChange={(itemValue, itemIndex) => setGenderSelected(itemValue)}>
 						<Picker.Item label="Todos" value="all" />
 						<Picker.Item label="Hombre" value="hombre" />
 						<Picker.Item label="Mujer" value="mujer" />
@@ -37,14 +37,25 @@ const styles = StyleSheet.create({
 	container: {
 		alignItems: "center",
 		flexDirection: "row",
-		backgroundColor: '#333',
+		backgroundColor: 'white',
 		justifyContent: "space-between",
         gap: 16,
 		paddingVertical: 10,
 		paddingHorizontal: 10,
+		borderColor: '#eee',
+		borderBottomWidth: 1,
+
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 0,
+			height: 12,
+		},
+		shadowOpacity: 0.58,
+		shadowRadius: 16.0,
+		elevation: 24,
 	},
 	text:{ 
-		color: 'white'
+		color: 'black'
 	},
 	filterCell: {
 		gap: 10,
