@@ -18,7 +18,7 @@ const Navigator = () => {
         tabBarLabelStyle: styles.tabLabelStyle, 
         tabBarStyle: styles.tabStyle,
         animation: "slide_from_right",
-        header: () => <Header />,
+        header: () => {},
     }
 
     return (

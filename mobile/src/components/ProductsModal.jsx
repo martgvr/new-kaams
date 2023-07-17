@@ -63,6 +63,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 6,
         marginBottom: 6,
+        padding: 10,
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 10,
+        backgroundColor: '#f5f3f0',
     },
     productDataTitle: {
         fontSize: 12,

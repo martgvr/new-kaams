@@ -1,17 +1,17 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from "react-native"
+import Header from "../components/Header"
 
 const Config = () => {
-   return (
-       <View style={styles.container}>
-           <Text>Config</Text>
-       </View>
-   )
+	return (
+		<View style={styles.container}>
+			<Header />
+			<Text>Config</Text>
+		</View>
+	)
 }
 
 export default Config
 
 const styles = StyleSheet.create({
-   container: {
-       
-   }
+	container: {},
 })

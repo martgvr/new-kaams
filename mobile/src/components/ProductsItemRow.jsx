@@ -13,7 +13,6 @@ const ProductsItemRow = ({ item, setShowModal, setModalProductName }) => {
 
 			<View style={styles.view}>
 				<Text style={styles.text}>{item.name}</Text>
-				<Text style={styles.text}>{item.stock}</Text>
 				<Text style={styles.text}>$ {item.price}</Text>
 			</View>
 		</TouchableOpacity>
@@ -39,7 +38,8 @@ const styles = StyleSheet.create({
 	view: {
 		flex: 1,
 		flexDirection: 'row',
-		justifyContent: 'space-between'
+		justifyContent: 'space-between',
+		paddingHorizontal: 20
 	},
 	image: {
 		width: 35,

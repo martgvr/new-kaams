@@ -2,6 +2,8 @@ import { useEffect } from "react"
 import { getData } from "../service/firebase.service"
 import { StyleSheet, Text, View } from "react-native"
 
+import Header from "../components/Header"
+
 const Banners = () => {
 	useEffect(() => {
 		// getData("market").then((res) => console.log(res))
@@ -10,6 +12,7 @@ const Banners = () => {
 
 	return (
 		<View style={styles.container}>
+			<Header />
 			<Text>Banners</Text>
 		</View>
 	)

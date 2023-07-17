@@ -1,17 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from "react-native"
+import Header from "../components/Header"
 
 const Orders = () => {
-   return (
-       <View style={styles.container}>
-           <Text>Orders</Text>
-       </View>
-   )
+	return (
+		<View style={styles.container}>
+			<Header />
+			<Text>Orders</Text>
+		</View>
+	)
 }
 
 export default Orders
 
 const styles = StyleSheet.create({
-   container: {
-       
-   }
+	container: {
+		width: "100%",
+		height: "100%",
+	},
 })

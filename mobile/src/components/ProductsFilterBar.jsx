@@ -37,10 +37,10 @@ const styles = StyleSheet.create({
 	container: {
 		alignItems: "center",
 		flexDirection: "row",
-		backgroundColor: 'white',
+		backgroundColor: '#f5f3f0',
 		justifyContent: "space-between",
         gap: 16,
-		paddingVertical: 10,
+		paddingVertical: 12,
 		paddingHorizontal: 10,
 		borderColor: '#eee',
 		borderBottomWidth: 1,
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
 	pickerContainer: {
 		height: 30,
         flexGrow: 1,
-		backgroundColor: "#eee",
+		backgroundColor: "white",
 		justifyContent: "center",
         borderWidth: 1,
 		borderRadius: 10,
