@@ -1,6 +1,6 @@
+import { COLORS } from "../global/theme"
 import { Picker } from "@react-native-picker/picker"
 import { StyleSheet, Text, View } from "react-native"
-import { COLORS } from "../global/theme"
 
 const ProductsFilterBar = ({ gender, setGender, categorySelected, setCategorySelected, categoriesList }) => {
 	return (
@@ -37,11 +37,14 @@ const styles = StyleSheet.create({
 	container: {
 		alignItems: "center",
 		flexDirection: "row",
-		backgroundColor: COLORS.tertiary,
+		backgroundColor: '#333',
 		justifyContent: "space-between",
         gap: 16,
 		paddingVertical: 10,
 		paddingHorizontal: 10,
+	},
+	text:{ 
+		color: 'white'
 	},
 	filterCell: {
 		gap: 10,
