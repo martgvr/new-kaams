@@ -18,7 +18,6 @@ const Products = () => {
 	const [categorySelected, setCategorySelected] = useState('all')
 
 	const [modalProductName, setModalProductName] = useState('')
-	
 	const [showModal, setShowModal] = useState(false)
 	const [showAddModal, setShowAddModal] = useState(false)
 	const [showSearchModal, setShowSearchModal] = useState(false)
@@ -46,15 +45,8 @@ const Products = () => {
 		setCategoriesList(mappedCategories)
 	}, [productData])
 
-	const searchProductHandler = () => {
-		console.log('Buscar item');
-		setShowSearchModal(true)
-	}
-	
-	const addProductHandler = () => {
-		console.log('Agregar producto');
-		setShowAddModal(true)
-	}
+	const addProductHandler = () => setShowAddModal(true)
+	const searchProductHandler = () => setShowSearchModal(true)
 
 	return (
 		<View style={styles.container}>
@@ -67,15 +59,9 @@ const Products = () => {
 					showsVerticalScrollIndicator={false}
 					renderItem={({ item }) => <ProductsItemRow item={item} setShowModal={setShowModal} setModalProductName={setModalProductName} />}
 				/>
-				{
-					showModal && <ProductsModal setShowModal={setShowModal} modalProductName={modalProductName} />
-				}
-				{
-					showAddModal && <ProductsModalAdd setShowAddModal={setShowAddModal} />
-				}
-				{
-					showSearchModal && <ProductsModalSearch setShowSearchModal={setShowSearchModal} />
-				}
+				{ showAddModal && <ProductsModalAdd setShowAddModal={setShowAddModal} /> }
+				{ showSearchModal && <ProductsModalSearch setShowSearchModal={setShowSearchModal} /> }
+				{ showModal && <ProductsModal setShowModal={setShowModal} modalProductName={modalProductName} /> }
 			</View>
 		</View>
 	)

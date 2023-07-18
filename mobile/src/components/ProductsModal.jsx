@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
 	},
 	container: {
         gap: 10,
-        padding: 20,
+        padding: 10,
         width: '70%',
 		elevation: 8,
         shadowColor: "#444",
