@@ -1,36 +1,52 @@
-import { StyleSheet, Text, View, Modal, TouchableOpacity } from "react-native"
 import { COLORS } from "../global/theme"
+import { StyleSheet, Text, View, Modal, TouchableOpacity } from "react-native"
+import { deleteData } from "../service/firebase.service"
 
-const ProductsModal = ({ setShowModal, modalProductName }) => {
+const ProductsModal = ({ setShowModal, modalProductData, updateDBHandler }) => {
+    const deleteProductHandler = async () => {
+        setShowModal(false)
+        const dbRequest = deleteData("products", modalProductData.uid)
+        dbRequest && updateDBHandler()
+    }
+
 	return (
-		<Modal onRequestClose={() => setShowModal(false)} transparent={true}>
-			<View style={styles.centerView}>
-				<View style={styles.container}>
-                    <View style={styles.productDataContainer}>
-                        <Text style={styles.productDataTitle}>Producto:</Text>
-                        <Text style={styles.productDataName}>{modalProductName}</Text>
+        <View style={styles.background}>
+            <Modal onRequestClose={() => setShowModal(false)} transparent={true}>
+                <View style={styles.centerView}>
+                    <View style={styles.container}>
+                        <View style={styles.productDataContainer}>
+                            <Text style={styles.productDataTitle}>Producto:</Text>
+                            <Text style={styles.productDataName}>{modalProductData.name}</Text>
+                        </View>
+
+                        <TouchableOpacity style={styles.button} onPress={deleteProductHandler}>
+                            <Text>Borrar producto</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.button}>
+                            <Text>Modificar producto</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={[styles.button, styles.cancelButton]} onPress={() => setShowModal(false)}>
+                            <Text>Cerrar</Text>
+                        </TouchableOpacity>
                     </View>
-
-					<TouchableOpacity style={styles.button}>
-                        <Text>Borrar producto</Text>
-                    </TouchableOpacity>
-
-					<TouchableOpacity style={styles.button}>
-                        <Text>Modificar producto</Text>
-                    </TouchableOpacity>
-
-					<TouchableOpacity style={styles.button} onPress={() => setShowModal(false)}>
-                        <Text>Cerrar</Text>
-                    </TouchableOpacity>
-				</View>
-			</View>
-		</Modal>
+                </View>
+            </Modal>
+        </View>
 	)
 }
 
 export default ProductsModal
 
 const styles = StyleSheet.create({
+    background: {
+		position: 'absolute',
+		backgroundColor: '#ddd',
+		height: '100%',
+		width: '100%',
+		opacity: 0.8,
+	},
 	centerView: {
 		flex: 1,
 		alignItems: "center",
@@ -58,6 +74,10 @@ const styles = StyleSheet.create({
         borderColor: '#eee',
         width: '100%'
     },
+    cancelButton: {
+		borderColor: '#e0cecc',
+		backgroundColor: '#f5e4e4',
+	},
     productDataContainer:{ 
         flexDirection: 'row',
         alignItems: 'center',

@@ -1,34 +1,43 @@
-import { StyleSheet, Text, View, Modal, TouchableOpacity } from "react-native"
 import { COLORS } from "../global/theme"
+import { StyleSheet, Text, View, Modal, TouchableOpacity } from "react-native"
 
 const ProductsModalSearch = ({ setShowSearchModal }) => {
 	return (
-		<Modal onRequestClose={() => setShowSearchModal(false)} transparent={true}>
-			<View style={styles.centerView}>
-				<View style={styles.container}>
-					<View style={styles.modalTitleContainer}>
-						<Text style={styles.modalTitleText}>Buscar producto</Text>
-					</View>
+		<View style={styles.background}>
+			<Modal onRequestClose={() => setShowSearchModal(false)} transparent={true}>
+				<View style={styles.centerView}>
+					<View style={styles.container}>
+						<View style={styles.modalTitleContainer}>
+							<Text style={styles.modalTitleText}>Buscar producto</Text>
+						</View>
 
-					<Text>Buscar</Text>
-					<View style={styles.buttonsContainer}>
-						<TouchableOpacity style={styles.button} onPress={() => setShowSearchModal(false)}>
-							<Text>Cerrar</Text>
-						</TouchableOpacity>
+						<Text>Buscar</Text>
+						<View style={styles.buttonsContainer}>
+							<TouchableOpacity style={[styles.button, styles.cancelButton]} onPress={() => setShowSearchModal(false)}>
+								<Text>Cerrar</Text>
+							</TouchableOpacity>
 
-						<TouchableOpacity style={styles.button} onPress={() => setShowSearchModal(false)}>
-							<Text>Buscar</Text>
-						</TouchableOpacity>
+							<TouchableOpacity style={[styles.button, styles.addButton]} onPress={() => setShowSearchModal(false)}>
+								<Text>Buscar</Text>
+							</TouchableOpacity>
+						</View>
 					</View>
 				</View>
-			</View>
-		</Modal>
+			</Modal>
+		</View>
 	)
 }
 
 export default ProductsModalSearch
 
 const styles = StyleSheet.create({
+	background: {
+		position: 'absolute',
+		backgroundColor: '#ddd',
+		height: '100%',
+		width: '100%',
+		opacity: 0.8,
+	},
 	centerView: {
 		flex: 1,
 		alignItems: "center",
@@ -59,6 +68,14 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderRadius: 8,
 		borderColor: "#eee",
+	},
+	addButton: {
+		borderColor: '#ccded1',
+		backgroundColor: '#ddf0e5',
+	},
+	cancelButton: {
+		borderColor: '#e0cecc',
+		backgroundColor: '#f5e4e4',
 	},
     modalTitleContainer: {
         flexDirection: 'row',

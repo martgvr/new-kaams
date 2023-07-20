@@ -1,10 +1,10 @@
 import { COLORS } from "../global/theme"
 import { StyleSheet, Text, Image, View, TouchableOpacity } from "react-native"
 
-const ProductsItemRow = ({ item, setShowModal, setModalProductName }) => {
+const ProductsItemRow = ({ item, setShowModal, setModalProductData }) => {
 	const openOptions = () => {
 		setShowModal(true)
-		setModalProductName(item.name)
+		setModalProductData(item)
 	}
 
 	return (

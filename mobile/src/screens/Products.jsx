@@ -13,17 +13,18 @@ import ProductsModalSearch from "../components/ProductsModalSearch"
 const Products = () => {
 	const [productData, setProductData] = useState([])
 	const [categoriesList, setCategoriesList] = useState([])
+	const [subcategoriesList, setSubcategoriesList] = useState([])
 
 	const [genderSelected, setGenderSelected] = useState('all')
 	const [categorySelected, setCategorySelected] = useState('all')
 
-	const [modalProductName, setModalProductName] = useState('')
+	const [modalProductData, setModalProductData] = useState('')
 	const [showModal, setShowModal] = useState(false)
 	const [showAddModal, setShowAddModal] = useState(false)
 	const [showSearchModal, setShowSearchModal] = useState(false)
 
 	useEffect(() => {
-		getData("products").then((res) => setProductData(res))
+		updateDBHandler()
 	}, [])
 
 	useEffect(() => {
@@ -36,17 +37,25 @@ const Products = () => {
 
 	useEffect(() => {
 		const mappedCategories = []
+		const mappedSubcategories = []
 
 		productData.map((item) => {
-			const categoryExistence = mappedCategories.find((category) => category == item.subcategory)
-			categoryExistence === undefined && mappedCategories.push(item.subcategory)
+			const categoryExistence = mappedCategories.find((category) => category == item.category.charAt(0).toUpperCase() + item.category.slice(1))
+			categoryExistence === undefined && mappedCategories.push(item.category.charAt(0).toUpperCase() + item.category.slice(1))
+		})
+
+		productData.map((item) => {
+			const subcategoryExistence = mappedSubcategories.find((category) => category == item.subcategory.charAt(0).toUpperCase() + item.subcategory.slice(1))
+			subcategoryExistence === undefined && mappedSubcategories.push(item.subcategory.charAt(0).toUpperCase() + item.subcategory.slice(1))
 		})
 
 		setCategoriesList(mappedCategories)
+		setSubcategoriesList(mappedSubcategories)
 	}, [productData])
 
 	const addProductHandler = () => setShowAddModal(true)
 	const searchProductHandler = () => setShowSearchModal(true)
+	const updateDBHandler = () => getData("products").then((res) => setProductData(res))
 
 	return (
 		<View style={styles.container}>
@@ -57,11 +66,11 @@ const Products = () => {
 					data={productData}
 					keyExtractor={(product) => product.name}
 					showsVerticalScrollIndicator={false}
-					renderItem={({ item }) => <ProductsItemRow item={item} setShowModal={setShowModal} setModalProductName={setModalProductName} />}
+					renderItem={({ item }) => <ProductsItemRow item={item} setShowModal={setShowModal} setModalProductData={setModalProductData} />}
 				/>
-				{ showAddModal && <ProductsModalAdd setShowAddModal={setShowAddModal} /> }
+				{ showAddModal && <ProductsModalAdd setShowAddModal={setShowAddModal} categoriesList={categoriesList} subcategoriesList={subcategoriesList} updateDBHandler={updateDBHandler} /> }
 				{ showSearchModal && <ProductsModalSearch setShowSearchModal={setShowSearchModal} /> }
-				{ showModal && <ProductsModal setShowModal={setShowModal} modalProductName={modalProductName} /> }
+				{ showModal && <ProductsModal setShowModal={setShowModal} modalProductData={modalProductData} updateDBHandler={updateDBHandler} /> }
 			</View>
 		</View>
 	)
